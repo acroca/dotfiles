@@ -1,0 +1,12 @@
+{
+  "binDir": "/usr/local/bin"
+, "noWrapper": true
+, "watchOnSave": false
+, "watchOnModified": false
+, "compileOnSave": false
+, "showOutputOnSave": false
+, "compileDir": false
+, "compilePaths": false
+, "checkSyntaxOnSave": false
+, "lintOnSave": false
+}

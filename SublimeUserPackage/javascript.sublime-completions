@@ -1,0 +1,8 @@
+{
+  "scope": "source.js",
+  "completions": [
+    { "trigger": "ps", "contents": "console.log(\"===> $1: \", $1);"},
+    { "trigger": "psj", "contents": "console.log(\"===> JSON $1: \", JSON.stringify($1, null, 2));"},
+    { "trigger": "rerr", "contents": "if($2){return ${1:cb}(${2:err});}"}
+  ]
+}

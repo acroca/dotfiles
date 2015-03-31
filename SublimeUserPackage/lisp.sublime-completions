@@ -1,0 +1,6 @@
+{
+  "scope": "source.lisp",
+  "completions": [
+    { "trigger": "ps", "contents": "(format t \"~%===> $1: ~a~%\" $1)"}
+  ]
+}
