@@ -1,6 +1,7 @@
 {
 	"color_scheme": "Packages/Predawn/predawn.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
+	"findreplace_small": true,
 	"folder_exclude_patterns":
 	[
 		".git",
@@ -20,12 +21,11 @@
 		100,
 		110
 	],
-	"tab_size": 2,
-	"theme": "predawn.sublime-theme",
 	"scroll_speed": 5.0,
 	"show_full_path": false,
-	"tabs_small": true,
-	"findreplace_small": true,
 	"sidebar_small": true,
+	"tab_size": 2,
+	"tabs_small": true,
+	"theme": "predawn.sublime-theme",
 	"translate_tabs_to_spaces": true
 }
