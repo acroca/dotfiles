@@ -1,0 +1,17 @@
+{
+  "env": {
+    "GOROOT": "/Users/albert/workspace/go",
+    "GOPATH": "/Users/albert/workspace/gocode"
+  },
+  "comp_lint_enabled": true,
+  "comp_lint_commands": [
+    {"cmd": ["go", "install"]}, // first run go install
+    {"cmd": ["go", "vet"]},     // followed by go vet,
+    {"cmd": ["golint"]}         // followed by golint,
+  ],
+
+  "on_save": [
+    {"cmd": "gs_comp_lint"}
+  ],
+  "fmt_cmd" : ["goimports"]
+}
