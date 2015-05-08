@@ -5,7 +5,7 @@
   },
   "comp_lint_enabled": true,
   "comp_lint_commands": [
-    {"cmd": ["go", "install"]}, // first run go install
+    {"cmd": ["godep", "go", "install"]}, // first run go install
     {"cmd": ["go", "vet"]},     // followed by go vet,
     {"cmd": ["golint"]}         // followed by golint,
   ],
@@ -13,5 +13,14 @@
   "on_save": [
     {"cmd": "gs_comp_lint"}
   ],
-  "fmt_cmd" : ["goimports"]
+  "fmt_cmd" : ["goimports"],
+  "snippets": [
+    {
+      "match": {"global": true},
+      "snippets": [
+        { "text": "ps", "value": "fmt.Println(\"===> $1: \", $1)"},
+        { "text": "rerr", "value": "if ${1:err} != nil {\n\treturn $1\n}"}
+      ]
+    }
+  ]
 }

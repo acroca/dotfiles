@@ -20,6 +20,7 @@ export DOCKER_CERT_PATH=/Users/albert/.boot2docker/certs/boot2docker-vm
 alias ipfw_on="sudo ipfw pipe 1 config bw 64KByte/s delay 400ms && sudo ipfw add 1 pipe 1 src-port 3000"
 alias ipfw_off="sudo ipfw delete 1"
 alias sync="rsync -avh --ignore-existing"
+alias kub="kubectl --kubeconfig=/Users/albert/.kubernetes_vagrant_kubeconfig"
 
 source ~/private.sh
 source $ZSH/oh-my-zsh.sh
