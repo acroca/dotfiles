@@ -1,0 +1,36 @@
+[core]
+  excludesfile = ~/.gitignore
+  editor = subl -w -n
+
+[user]
+  name = Albert Callarisa
+  email = shark234@gmail.com
+
+[alias]
+  st = status -bs
+  pr = pull --rebase
+  car = commit --amend --reset-author
+  ci= commit
+  co= checkout
+  l=log --graph --pretty=format:'%Cgreen%h%Cblue%d%Creset %s %Cred%an%Creset'
+
+[push]
+	default = current
+
+[apply]
+  whitespace = warn
+
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[gc]
+	auto = 1
