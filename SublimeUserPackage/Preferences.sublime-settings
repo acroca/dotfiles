@@ -12,8 +12,8 @@
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage",
-		"Markdown"
+		"Markdown",
+		"Vintage"
 	],
 	"rulers":
 	[
@@ -26,6 +26,6 @@
 	"sidebar_small": true,
 	"tab_size": 2,
 	"tabs_small": true,
-	"theme": "predawn.sublime-theme",
+	"theme": "predawn-DEV.sublime-theme",
 	"translate_tabs_to_spaces": true
 }
