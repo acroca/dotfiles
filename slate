@@ -1,0 +1,19 @@
+# This is the default .slate file.
+# If no ~/.slate file exists this is the file that will be used.
+
+config defaultToCurrentScreen true
+config nudgePercentOf screenSize
+config resizePercentOf screenSize
+
+bind left:alt;ctrl;cmd	push left bar-resize:screenSizeX/2
+bind right:alt;ctrl;cmd	push right bar-resize:screenSizeX/2
+bind up:alt;ctrl;cmd	push up bar-resize:screenSizeY/2
+bind down:alt;ctrl;cmd	push down bar-resize:screenSizeY/2
+bind m:alt;ctrl;cmd   move 0;0 screenSizeX;screenSizeY
+
+bind r:alt;ctrl;cmd   throw 1 resize:screenSizeX;screenSizeY
+bind l:alt;ctrl;cmd		throw 0 resize:screenSizeX;screenSizeY
+
+#bind ;:alt focus "Atom"
+bind ;:alt focus "Sublime Text"
+bind ':alt focus "Terminal"
