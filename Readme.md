@@ -23,6 +23,7 @@ Those are some dotfiles and config files I use.
 - [Google Chrome](http://www.google.com/chrome/)
 - [Install n](https://github.com/tj/n)
 - Add `d.lo` to /etc/hosts: `192.168.59.103  d.lo`
+- Follow [OSX for hackers](https://gist.github.com/brandonb927/3195465)
 
 # Sublime packages
 

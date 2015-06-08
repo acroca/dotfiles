@@ -1,6 +1,6 @@
 [core]
   excludesfile = ~/.gitignore
-  editor = subl -w -n
+	editor = subl -n -w
 
 [user]
   name = Albert Callarisa
