@@ -12,6 +12,9 @@ Those are some dotfiles and config files I use.
 - [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - [Slate](https://github.com/jigish/slate)
 - [Sublime](https://www.sublimetext.com)
+- [Zsh](https://github.com/robbyrussell/oh-my-zsh)
+- `ln -s ~/workspace/dotfiles/zshrc ~/.zshrc`
+- `ln -s ~/workspace/dotfiles/zshrc_functions ~/.zshrc_functions`
 - Install dropbox
 - Install 1Password (App Store)
 - Install Caffeine (App Store)

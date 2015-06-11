@@ -23,6 +23,7 @@ alias sync="rsync -avh --ignore-existing"
 alias kub="kubectl --kubeconfig=/Users/albert/.kubernetes_vagrant_kubeconfig"
 
 source ~/private.sh
+source ~/.zshrc_functions
 source $ZSH/oh-my-zsh.sh
 unsetopt AUTO_CD
 
