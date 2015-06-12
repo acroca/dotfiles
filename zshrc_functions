@@ -5,13 +5,7 @@ function redis-cli (){
       echo usage: redis-cli docker-container
       return
   fi
-  dockerImage=$( docker inspect -f {{.Image}} $1 )
-  docker run \
-    --rm \
-    -it \
-    --link $1\:redis \
-    $dockerImage \
-    bash -c "redis-cli -h \$REDIS_PORT_6379_TCP_ADDR -p \$REDIS_PORT_6379_TCP_PORT"
+  docker exec -it $1 redis-cli
 }
 
 # Runs a mongo client connected to the specified docker container (1st argument)
@@ -21,11 +15,5 @@ function mongo (){
       echo usage: mongo docker-container
       return
   fi
-  dockerImage=$( docker inspect -f {{.Image}} $1 )
-  docker run \
-    --rm \
-    -it \
-    --link $1\:mongo \
-    $dockerImage \
-    bash -c "mongo --host \$MONGO_PORT_27017_TCP_ADDR -p \$MONGO_PORT_27017_TCP_PORT"
+  docker exec -it $1 mongo
 }
