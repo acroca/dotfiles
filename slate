@@ -17,3 +17,4 @@ bind m:alt;ctrl;cmd   move 0;0 screenSizeX;screenSizeY
 bind 1:cmd focus "Sublime Text"
 bind 2:cmd focus "Terminal"
 bind 3:cmd focus "Google Chrome"
+bind 4:cmd focus "Slack"
