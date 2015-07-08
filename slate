@@ -10,6 +10,7 @@ bind right:alt;ctrl;cmd	push right bar-resize:screenSizeX/2
 bind up:alt;ctrl;cmd	push up bar-resize:screenSizeY/2
 bind down:alt;ctrl;cmd	push down bar-resize:screenSizeY/2
 bind m:alt;ctrl;cmd   move 0;0 screenSizeX;screenSizeY
+bind n:alt;ctrl;cmd   move screenSizeX*0.2;screenSizeY*0.1 screenSizeX*0.6;screenSizeY*0.8
 
 # bind r:alt;ctrl;cmd   throw 1 resize:screenSizeX;screenSizeY
 # bind l:alt;ctrl;cmd		throw 0 resize:screenSizeX;screenSizeY
