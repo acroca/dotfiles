@@ -5,7 +5,7 @@
   },
   "comp_lint_enabled": true,
   "comp_lint_commands": [
-    {"cmd": ["godep", "go", "install"]}, // first run go install
+    {"cmd": ["go", "install"]}, // first run go install
     {"cmd": ["go", "vet"]},     // followed by go vet,
     {"cmd": ["golint"]}         // followed by golint,
   ],

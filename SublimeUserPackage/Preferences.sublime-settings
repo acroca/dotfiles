@@ -21,6 +21,13 @@
 		"Markdown"
 	],
 	"overlay_scroll_bars": "enabled",
+	"paths":
+	{
+		"osx":
+		[
+			"./node_modules/.bin"
+		]
+	},
 	"rulers":
 	[
 		80,
