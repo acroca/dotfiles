@@ -7,3 +7,9 @@
 [submodule "vim/bundle/papercolor-theme.git"]
 	path = vim/bundle/papercolor-theme.git
 	url = git@github.com:NLKNguyen/papercolor-theme.git
+[submodule "vim/bundle/gitgutter.git"]
+	path = vim/bundle/gitgutter.git
+	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "vim/bundle/better-whitespace"]
+	path = vim/bundle/better-whitespace
+	url = git://github.com/ntpeters/vim-better-whitespace.git
