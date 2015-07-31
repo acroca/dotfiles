@@ -1,6 +1,6 @@
 [core]
   excludesfile = ~/.gitignore
-	editor = subl -n -w
+	editor = vim
 
 [user]
   name = Albert Callarisa
