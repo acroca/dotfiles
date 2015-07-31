@@ -1,5 +1,5 @@
 [core]
-  excludesfile = ~/.gitignore
+	excludesfile = /Users/albert/workspace/dotfiles/gitignore
 	editor = vim
 
 [user]
