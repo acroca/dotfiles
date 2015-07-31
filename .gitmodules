@@ -1,0 +1,9 @@
+[submodule "vim/bundle/ack.vim"]
+	path = vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/bundle/ctrlp.vim"]
+	path = vim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim.git
+[submodule "vim/bundle/papercolor-theme.git"]
+	path = vim/bundle/papercolor-theme.git
+	url = git@github.com:NLKNguyen/papercolor-theme.git
