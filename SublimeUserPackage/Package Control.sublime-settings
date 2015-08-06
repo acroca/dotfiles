@@ -1,0 +1,19 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Better CoffeeScript",
+		"Dockerfile Syntax Highlighting",
+		"Git",
+		"GitGutter",
+		"Jade",
+		"MarkdownEditing",
+		"Material Theme",
+		"Pretty JSON",
+		"SideBarEnhancements",
+		"Stylus",
+		"TrailingSpaces"
+	]
+}
