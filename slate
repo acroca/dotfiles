@@ -6,7 +6,7 @@ config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
 layout work 'Terminal':REPEAT throw 1 resize:screenSizeX;screenSizeY
-layout work 'MacVim':REPEAT throw 1 resize:screenSizeX;screenSizeY
+layout work 'Sublime Text':REPEAT throw 1 resize:screenSizeX;screenSizeY
 layout work 'Google Chrome':REPEAT throw 0 resize:screenSizeX;screenSizeY
 layout work 'Slack':REPEAT throw 0 resize:screenSizeX;screenSizeY
 
@@ -21,7 +21,7 @@ bind ,:alt;ctrl;cmd     throw 0 resize:screenSizeX;screenSizeY
 bind .:alt;ctrl;cmd     throw 1 resize:screenSizeX;screenSizeY
 bind w:alt;ctrl;cmd     layout work
 
-bind 1:cmd focus "MacVim"
+bind 1:cmd focus "Sublime Text"
 bind 2:cmd focus "Terminal"
 bind 3:cmd focus "Google Chrome"
 bind 4:cmd focus "Slack"

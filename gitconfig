@@ -1,6 +1,6 @@
 [core]
 	excludesfile = /Users/albert/workspace/dotfiles/gitignore
-	editor = vim
+	editor = subl -n -w
 
 [user]
   name = Albert Callarisa

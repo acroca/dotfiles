@@ -21,7 +21,7 @@ alias ipfw_on="sudo ipfw pipe 1 config bw 64KByte/s delay 400ms && sudo ipfw add
 alias ipfw_off="sudo ipfw delete 1"
 alias sync="rsync -avh --ignore-existing"
 alias kub="kubectl --kubeconfig=/Users/albert/.kubernetes_vagrant_kubeconfig"
-alias e="mvim"
+alias e="subl"
 
 source ~/private.sh
 source ~/.zshrc_functions
@@ -30,3 +30,5 @@ unsetopt AUTO_CD
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+
+eval "$(rbenv init -)"
