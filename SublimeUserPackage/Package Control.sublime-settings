@@ -8,12 +8,16 @@
 		"Dockerfile Syntax Highlighting",
 		"Git",
 		"GitGutter",
+		"GoSublime",
 		"Jade",
 		"MarkdownEditing",
 		"Material Theme",
+		"Package Control",
 		"Pretty JSON",
 		"SideBarEnhancements",
 		"Stylus",
+		"SublimeLinter",
+		"SublimeLinter-jshint",
 		"TrailingSpaces"
 	]
 }
