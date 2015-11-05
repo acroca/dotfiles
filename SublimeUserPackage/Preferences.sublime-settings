@@ -39,6 +39,7 @@
 		100,
 		110
 	],
+	"scroll_past_end": true,
 	"scroll_speed": 5.0,
 	"show_full_path": false,
 	"tab_size": 2,

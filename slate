@@ -5,10 +5,12 @@ config defaultToCurrentScreen true
 config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
-layout work 'Terminal':REPEAT throw 1 resize:screenSizeX;screenSizeY
+layout work 'Terminal':REPEAT throw 2 resize:screenSizeX;screenSizeY
 layout work 'Sublime Text':REPEAT throw 1 resize:screenSizeX;screenSizeY
 layout work 'Google Chrome':REPEAT throw 0 resize:screenSizeX;screenSizeY
+layout work 'Firefox':REPEAT throw 0 resize:screenSizeX;screenSizeY
 layout work 'Slack':REPEAT throw 0 resize:screenSizeX;screenSizeY
+layout work 'Spotify':REPEAT throw 0 resize:screenSizeX;screenSizeY
 
 bind left:alt;ctrl;cmd  push left bar-resize:screenSizeX/2
 bind right:alt;ctrl;cmd push right bar-resize:screenSizeX/2
@@ -19,6 +21,7 @@ bind n:alt;ctrl;cmd     move screenSizeX*0.2;screenSizeY*0.1 screenSizeX*0.6;scr
 
 bind ,:alt;ctrl;cmd     throw 0 resize:screenSizeX;screenSizeY
 bind .:alt;ctrl;cmd     throw 1 resize:screenSizeX;screenSizeY
+bind /:alt;ctrl;cmd     throw 2 resize:screenSizeX;screenSizeY
 bind w:alt;ctrl;cmd     layout work
 
 bind 1:cmd focus "Sublime Text"

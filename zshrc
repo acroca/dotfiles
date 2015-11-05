@@ -13,14 +13,14 @@ export GOPATH="$HOME/workspace/gocode"
 export PATH="$HOME/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin:./node_modules/.bin:$PATH"
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 
-export DOCKER_TLS_VERIFY=1
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/albert/.boot2docker/certs/boot2docker-vm
+export DOCKER_HOST="tcp://192.168.99.100:2376"
+export DOCKER_MACHINE_NAME="default"
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_CERT_PATH="/Users/albert/.docker/machine/machines/default"
 
 alias ipfw_on="sudo ipfw pipe 1 config bw 64KByte/s delay 400ms && sudo ipfw add 1 pipe 1 src-port 3000"
 alias ipfw_off="sudo ipfw delete 1"
 alias sync="rsync -avh --ignore-existing"
-alias kub="kubectl --kubeconfig=/Users/albert/.kubernetes_vagrant_kubeconfig"
 alias e="subl"
 
 source ~/private.sh
