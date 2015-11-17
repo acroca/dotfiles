@@ -1,4 +1,5 @@
-vim/bundle
+vim/bundle/*
+!vim/bundle/Vundle.vim
 vim/.netrwhist
 SublimeUserPackage/Package Control.cache
 SublimeUserPackage/Package Control.last-run
