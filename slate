@@ -26,7 +26,7 @@ bind .:alt;ctrl;cmd     throw 1 resize:screenSizeX;screenSizeY
 bind /:alt;ctrl;cmd     throw 2 resize:screenSizeX;screenSizeY
 bind w:alt;ctrl;cmd     layout work
 
-bind 1:cmd focus "Sublime Text"
+bind 1:cmd focus "MacVim"
 bind 2:cmd focus "Terminal"
 bind 3:cmd focus "Google Chrome"
 bind 4:cmd focus "Slack"
