@@ -21,7 +21,7 @@ export DOCKER_CERT_PATH="/Users/albert/.docker/machine/machines/default"
 alias ipfw_on="sudo ipfw pipe 1 config bw 64KByte/s delay 400ms && sudo ipfw add 1 pipe 1 src-port 3000"
 alias ipfw_off="sudo ipfw delete 1"
 alias sync="rsync -avh --ignore-existing"
-
+alias e="mvim"
 source ~/private.sh
 source ~/.zshrc_functions
 source $ZSH/oh-my-zsh.sh
