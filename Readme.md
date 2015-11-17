@@ -21,6 +21,8 @@ Those are some dotfiles and config files I use.
 - Install Caffeine (App Store)
 - `ln -s ~/workspace/dotfiles/vimrc ~/.vimrc`
 - `ln -s ~/workspace/dotfiles/vim ~/.vim`
+- Configure vim: `mvim -u $HOME/.vim/plugins.vim +PluginInstall +qall`
+- Configure vim AutocompleteMe: `cd $HOME/.vim/bundle/YouCompleteMe/ && ./install.py -gocode-completer`
 - Sublime command line: `ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl`
 - [Sublime package manager](https://packagecontrol.io/installation)
 - Install Sublime packages (list below)

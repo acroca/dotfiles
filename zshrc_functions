@@ -1,3 +1,23 @@
+relpath () {
+    [[ $# -ge 1 ]] && [[ $# -le 2 ]] || return 1
+    local target=${${2:-$1}:a} # replace `:a' by `:A` to resolve symlinks
+    local current=${${${2:+$1}:-$PWD}:a} # replace `:a' by `:A` to resolve symlinks
+    local appendix=${target#/}
+    local relative=''
+    while appendix=${target#$current/}
+        [[ $current != '/' ]] && [[ $appendix = $target ]]; do
+        if [[ $current = $appendix ]]; then
+            relative=${relative:-.}
+            print ${relative#/}
+            return 0
+        fi
+        current=${current%/*}
+        relative="$relative${relative:+/}.."
+    done
+    relative+=${relative:+${appendix:+/}}${appendix#/}
+    print $relative
+}
+
 # Runs a redis-cli connected to the specified docker container (1st argument)
 function redis-cli (){
   if (( $# == 0 ))
@@ -16,4 +36,14 @@ function mongo (){
       return
   fi
   docker exec -it $1 mongo
+}
+
+function e (){
+  if [ -f $1 ]; then
+    local rel=$(relpath $(pwd) $(dirname $1))
+    docker run --rm -it -v $(pwd)/$rel:/code acroca/vim vim $(basename $1)
+  else
+    local rel=$(relpath $(pwd) $1)
+    docker run --rm -it -v $(pwd)/$rel:/code acroca/vim
+  fi
 }

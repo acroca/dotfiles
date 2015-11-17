@@ -1,12 +1,6 @@
-filetype off
-execute pathogen#infect()
-syntax on
+source $HOME/.vim/plugins.vim
 filetype plugin indent on
-
-set nocompatible
-
-set modelines=0
-
+syntax on
 
 set tabstop=2
 set shiftwidth=2
@@ -74,15 +68,15 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-nnoremap <leader>a :Ack
+nnoremap <leader>n :NERDTreeToggle<CR>
+let g:ctrlp_map = '<leader>p'
 
 set background=dark
 colorscheme PaperColor
 
 let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
-let g:ctrlp_map = '<leader>p'
 let g:UltiSnipsExpandTrigger="<C-j>"
 let g:UltiSnipsJumpForwardTrigger="<C-j>"
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-autocmd vimenter * NERDTree
+

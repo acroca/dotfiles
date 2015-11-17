@@ -1,3 +1,4 @@
+vim/bundle
 vim/.netrwhist
 SublimeUserPackage/Package Control.cache
 SublimeUserPackage/Package Control.last-run
@@ -5,3 +6,4 @@ SublimeUserPackage/Package Control.*ca-bundle
 SublimeUserPackage/TextPastryHistory.sublime-settings
 SublimeUserPackage/GoSublime-aux.sublime-settings
 SublimeUserPackage/GoSublime/*
+SublimeUserPackage/SublimeLinter/*

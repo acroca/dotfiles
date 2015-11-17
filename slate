@@ -6,11 +6,13 @@ config nudgePercentOf screenSize
 config resizePercentOf screenSize
 
 layout work 'Terminal':REPEAT throw 2 resize:screenSizeX;screenSizeY
+layout work 'iTerm':REPEAT throw 1 resize:screenSizeX;screenSizeY
+layout work 'MacVim':REPEAT throw 1 resize:screenSizeX;screenSizeY
 layout work 'Sublime Text':REPEAT throw 1 resize:screenSizeX;screenSizeY
 layout work 'Google Chrome':REPEAT throw 0 resize:screenSizeX;screenSizeY
 layout work 'Firefox':REPEAT throw 0 resize:screenSizeX;screenSizeY
-layout work 'Slack':REPEAT throw 0 resize:screenSizeX;screenSizeY
-layout work 'Spotify':REPEAT throw 0 resize:screenSizeX;screenSizeY
+layout work 'Slack' throw 0 resize:screenSizeX;screenSizeY
+layout work 'Spotify' throw 0 resize:screenSizeX;screenSizeY
 
 bind left:alt;ctrl;cmd  push left bar-resize:screenSizeX/2
 bind right:alt;ctrl;cmd push right bar-resize:screenSizeX/2
