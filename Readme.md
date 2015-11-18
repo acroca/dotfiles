@@ -23,6 +23,7 @@ Those are some dotfiles and config files I use.
 - `ln -s ~/workspace/dotfiles/vim ~/.vim`
 - Configure vim: `mvim -u $HOME/.vim/plugins.vim +PluginInstall +qall`
 - Configure vim AutocompleteMe: `cd $HOME/.vim/bundle/YouCompleteMe/ && ./install.py --gocode-completer`
+- `brew install the_silver_searcher`
 - Sublime command line: `ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl`
 - [Sublime package manager](https://packagecontrol.io/installation)
 - Install Sublime packages (list below)

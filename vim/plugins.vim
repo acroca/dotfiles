@@ -13,5 +13,8 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
 Plugin 'SirVer/ultisnips'
+Plugin 'wookiehangover/jshint.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'rking/ag.vim'
 
 call vundle#end()
