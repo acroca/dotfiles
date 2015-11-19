@@ -16,5 +16,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'wookiehangover/jshint.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'rking/ag.vim'
+Plugin 'wavded/vim-stylus.git'
+Plugin 'fatih/vim-go'
 
 call vundle#end()

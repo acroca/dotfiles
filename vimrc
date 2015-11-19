@@ -23,6 +23,7 @@ set backspace=indent,eol,start
 set laststatus=2
 set relativenumber
 set noundofile
+set noswapfile
 
 let mapleader = ","
 
@@ -70,6 +71,7 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>f :Ag 
+nnoremap <leader>b :CtrlPBuffer<CR>
 let g:ctrlp_map = '<leader>p'
 
 set background=dark
@@ -82,3 +84,4 @@ let g:UltiSnipsJumpForwardTrigger="<C-j>"
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 set guifont=Menlo\ Regular:h14
 
+let g:go_fmt_command = "goimports"
