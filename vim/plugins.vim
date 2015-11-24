@@ -18,5 +18,6 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'rking/ag.vim'
 Plugin 'wavded/vim-stylus.git'
 Plugin 'fatih/vim-go'
+Plugin 'digitaltoad/vim-jade'
 
 call vundle#end()
