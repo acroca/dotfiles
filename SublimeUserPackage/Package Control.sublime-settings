@@ -6,6 +6,7 @@
 	"installed_packages":
 	[
 		"Better CoffeeScript",
+		"CMake",
 		"Dockerfile Syntax Highlighting",
 		"Git",
 		"GitGutter",

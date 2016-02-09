@@ -13,6 +13,7 @@
   ci= commit
   co= checkout
   l=log --graph --pretty=format:'%Cgreen%h%Cblue%d%Creset %s %Cred%an%Creset'
+  df="!git diff --color | diff-highlight | diff-so-fancy | less --tabs=1,5 -R"
 
 [push]
 	default = current
