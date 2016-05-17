@@ -18,6 +18,16 @@ function mongo (){
   docker exec -it $1 mongo
 }
 
+# Runs a orientdb client connected to the specified docker container (1st argument)
+function orientdb (){
+  if (( $# == 0 ))
+    then
+      echo usage: orientdb docker-container
+      return
+  fi
+  docker exec -it $1 /orientdb/bin/console.sh
+}
+
 function o () {
   curl -s http://agile-atoll-9140.herokuapp.com/ascii/getupdate | awk '{print ((substr($0,2,1) == "t") ? "\033[1;32m" : "\033[1;31m") "mens\033[0m\n" ((substr($0,4,1) == "t") ? "\033[1;32m" : "\033[1;31m") "womens\033[0m\n" ((substr($0,6,1) == "t") ? "\033[1;32m" : "\033[1;31m") "shower\033[0m"}'
 }

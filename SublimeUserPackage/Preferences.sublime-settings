@@ -15,6 +15,7 @@
 		"*.tga",
 		"*.ttf",
 		"*.zip",
+		"doc/vendor/**",
 		"packer_cache/**"
 	],
 	"bold_folder_labels": true,

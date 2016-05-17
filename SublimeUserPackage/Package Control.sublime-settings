@@ -5,13 +5,17 @@
 	],
 	"installed_packages":
 	[
+		"1337 Color Scheme",
+		"apiDoc Autocompletion",
 		"Better CoffeeScript",
+		"Case Conversion",
 		"CMake",
 		"Dockerfile Syntax Highlighting",
 		"Git",
 		"GitGutter",
 		"GoSublime",
 		"Jade",
+		"JavaScriptNext - ES6 Syntax",
 		"MarkdownEditing",
 		"Material Theme",
 		"OmniSharp",
@@ -20,7 +24,7 @@
 		"SideBarEnhancements",
 		"Stylus",
 		"SublimeLinter",
-		"SublimeLinter-jshint",
+		"SublimeLinter-contrib-eslint",
 		"TrailingSpaces"
 	]
 }
