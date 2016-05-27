@@ -12,6 +12,7 @@ export GOROOT_BOOTSTRAP="$HOME/workspace/go1.4"
 export GOPATH="$HOME/workspace/gocode"
 export PATH="$HOME/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin:./node_modules/.bin:$PATH"
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
+export PATH="./env/bin:$PATH"
 
 alias ipfw_on="sudo ipfw pipe 1 config bw 64KByte/s delay 400ms && sudo ipfw add 1 pipe 1 src-port 3000"
 alias ipfw_off="sudo ipfw delete 1"
