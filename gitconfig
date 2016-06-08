@@ -26,8 +26,6 @@
   branch = auto
   ui = always
 
-[url "git@github.com:"]
-    insteadOf = https://github.com/
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
