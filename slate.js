@@ -75,7 +75,13 @@ slate.bind("/:alt,ctrl,cmd", slate.operation('throw', {
 }));
 slate.bind("w:alt,ctrl,cmd", slate.operation('layout', {"name": "main"}));
 
-slate.bind("1:cmd", slate.operation("focus", {"app": "Sublime Text"}));
+slate.bind("1:cmd",  function(win) {
+  if (win.app().name() === "Sublime Text") {
+    slate.operation("focus", {"app": "Unity"}).run();
+  } else {
+    slate.operation("focus", {"app": "Sublime Text"}).run();
+  }
+});
 slate.bind("2:cmd", slate.operation("focus", {"app": "Terminal"}));
 slate.bind("3:cmd", slate.operation("focus", {"app": "Google Chrome"}));
 slate.bind("4:cmd", function(win) {
@@ -85,4 +91,3 @@ slate.bind("4:cmd", function(win) {
     slate.operation("focus", {"app": "Slack"}).run();
   }
 });
-slate.bind("5:cmd", slate.operation("focus", {"app": "Unity"}));
