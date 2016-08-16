@@ -8,3 +8,5 @@ SublimeUserPackage/TextPastryHistory.sublime-settings
 SublimeUserPackage/GoSublime-aux.sublime-settings
 SublimeUserPackage/GoSublime/*
 SublimeUserPackage/SublimeLinter/*
+vscode_User/workspaceStorage
+vscode_User/projects.json

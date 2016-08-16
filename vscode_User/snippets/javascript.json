@@ -1,0 +1,39 @@
+{
+  "Print to console": {
+    "prefix": "ps",
+    "description": "Prints a variable to the console",
+    "body": [
+      "console.log('===> $1: ', $1);"
+    ]
+  },
+  "Print JSON to the console": {
+    "prefix": "psj",
+    "body": [
+      "console.log('===> JSON $1: ', JSON.stringify($1, null, 2));"
+    ]
+  },
+  "Return an error": {
+    "prefix": "rerr",
+    "body": [
+      "if($2) { return ${1:cb}(${2:err}); }"
+    ]
+  },
+  "Then": {
+    "prefix": ".t",
+    "body": [
+      ".then(($1) => {\n\t$0\n})"
+    ]
+  },
+  "Catch": {
+    "prefix": ".c",
+    "body": [
+      ".catch((${1:err}) => {\n\t$0\n})"
+    ]
+  },
+  "Function": {
+    "prefix": "fn",
+    "body": [
+      "($1) => {$0}"
+    ]
+  }
+}
