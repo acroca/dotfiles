@@ -58,3 +58,14 @@
   added = yellow
   changed = green
   untracked = cyan
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
+
+[mergetool "unityyamlmerge"]
+  trustExitCode = false
+  cmd = /Applications/Unity/Unity.app/Contents/Tools/UnityYAMLMerge merge -p "$BASE" "$REMOTE" "$LOCAL" "$MERGED"
+
+[url "git@github.com:"]
+  insteadOf = https://github.com/
