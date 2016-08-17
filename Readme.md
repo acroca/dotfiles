@@ -28,7 +28,6 @@ Those are some dotfiles and config files I use.
 - [Sublime package manager](https://packagecontrol.io/installation)
 - Install Sublime packages (list below)
 - `rm -rf ~/Library/Application Support/Sublime Text 3/Packages/User && ln -s ~/workspace/dotfiles/SublimeUserPackage ~/Library/Application Support/Sublime Text 3/Packages/User`
-- `rm -rf ~/Library/Application Support/Code/User && ln -s ~/workspace/dotfiles/vscode_User ~/Library/Application Support/Code/User`
 - `ln -s ~/workspace/dotfiles/SublimeUserPackage User`
 - [Google Chrome](http://www.google.com/chrome/)
 - [Install n](https://github.com/tj/n)
