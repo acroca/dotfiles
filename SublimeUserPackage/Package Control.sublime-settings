@@ -13,8 +13,11 @@
 		"Dockerfile Syntax Highlighting",
 		"Git",
 		"GitGutter",
+		"GoOracle",
 		"GoSublime",
+		"GotoWindow",
 		"IDL-Syntax",
+		"INI",
 		"Jade",
 		"MarkdownEditing",
 		"Material Theme",
@@ -25,6 +28,7 @@
 		"Stylus",
 		"SublimeLinter",
 		"SublimeLinter-contrib-eslint",
-		"TrailingSpaces"
+		"TrailingSpaces",
+		"Unity3D Shader Highlighter and Snippets"
 	]
 }

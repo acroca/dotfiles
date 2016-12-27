@@ -1,10 +1,11 @@
 [core]
 	excludesfile = /Users/albert/workspace/dotfiles/gitignore
-	editor = subl -n -w
+	editor = code --wait
 
 [user]
   name = Albert Callarisa
-  email = shark234@gmail.com
+  email = albert@acroca.com
+	signingkey = E6149DFDC69BCA5C
 
 [alias]
   st = status -bs
@@ -33,6 +34,11 @@
 [gc]
 	auto = 1
 
+[diff]
+    tool = default-difftool
+
+[difftool "default-difftool"]
+    cmd = code --wait --diff $LOCAL $REMOTE
 [pager]
 	diff = diff-so-fancy | less --tabs=1,5 -RFX
 	show = diff-so-fancy | less --tabs=1,5 -RFX
@@ -68,3 +74,5 @@
 
 [url "git@github.com:"]
   insteadOf = https://github.com/
+[commit]
+	gpgsign = true

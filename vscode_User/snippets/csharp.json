@@ -1,0 +1,9 @@
+{
+  "Debug": {
+    "prefix": "ps",
+    "description": "Print out a variable",
+    "body": [
+      "Debug.Log(\"===> $1: \" + $1);"
+    ]
+  }
+}

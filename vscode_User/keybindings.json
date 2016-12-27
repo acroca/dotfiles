@@ -1,0 +1,4 @@
+[
+  { "key": "shift+cmd+]",         "command": "workbench.action.nextEditor" },
+  { "key": "shift+cmd+[",         "command": "workbench.action.previousEditor" }
+]

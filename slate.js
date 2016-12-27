@@ -23,23 +23,14 @@ slate.layout('main', {
   'WhatsApp': {repeat: true, operations: [screen0]},
 
   'MacVim': {repeat: true, operations: [screen1]},
-  'Sublime Text': {repeat: true, operations: [screen1]},
+  'Code': {repeat: true, operations: [screen1]},
 
   'Terminal': {repeat: true, operations: [screen2]},
   'Unity': {
     repeat: true,
     operations: [
       function(win){
-        slate.log(win.title());
-        if (win.title() === "Build Settings") {
-          win.doOperation(slate.operation('throw', {
-            "screen": "1",
-            "width": "700",
-            "height": "700",
-            x: "screenSizeX - 750",
-            y: "screenSizeY - 750",
-          }));
-        } else {
+        if (win.title() !== "Build Settings") {
           win.doOperation(screen2);
         }
       }
@@ -94,10 +85,10 @@ slate.bind("/:alt,ctrl,cmd", slate.operation('throw', {
 slate.bind("w:alt,ctrl,cmd", slate.operation('layout', {"name": "main"}));
 
 slate.bind("1:cmd",  function(win) {
-  if (win && win.app() && win.app().name() === "Sublime Text") {
+  if (win && win.app() && win.app().name() === "Code") {
     slate.operation("focus", {"app": "Unity"}).run();
   } else {
-    slate.operation("focus", {"app": "Sublime Text"}).run();
+    slate.operation("focus", {"app": "Code"}).run();
   }
 });
 slate.bind("2:cmd", slate.operation("focus", {"app": "Terminal"}));
