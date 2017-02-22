@@ -4,7 +4,10 @@
     90
   ],
   "editor.tabSize": 2,
-  "files.trimTrailingWhitespace": true,
   "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": true
+  "telemetry.enableCrashReporter": false,
+  "files.insertFinalNewline": true,
+  "rest-client.enableTelemetry": false,
+  "terminal.integrated.scrollback": 10000,
+  "vsicons.presets.hideFolders": false
 }

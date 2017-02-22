@@ -1,4 +1,20 @@
 [
-  { "key": "shift+cmd+]",         "command": "workbench.action.nextEditor" },
-  { "key": "shift+cmd+[",         "command": "workbench.action.previousEditor" }
+  {
+    "key": "shift+cmd+j",
+    "command": "workbench.action.terminal.focus"
+  },{
+    "key": "shift+cmd+]",
+    "command": "workbench.action.nextEditor"
+  },{
+    "key": "shift+cmd+[",
+    "command": "workbench.action.previousEditor"
+  },{
+    "key": "cmd+d",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },{
+    "key": "cmd+e",
+    "command": "editor.action.addSelectionToPreviousFindMatch",
+    "when": "editorFocus"
+  }
 ]
