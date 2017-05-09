@@ -1,7 +1,0 @@
-[
-  { "keys": ["command+shift+r"], "command": "goto_symbol_in_project" },
-  { "keys": ["command+shift+b"], "command": "git_status"},
-  { "keys": ["command+shift+v"], "command": "goto_definition"},
-  { "keys": ["command+k"], "command": "show_at_center"}
-
-]

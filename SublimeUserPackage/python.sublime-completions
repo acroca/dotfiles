@@ -1,6 +1,0 @@
-{
-  "scope": "source.python",
-  "completions": [
-    { "trigger": "ps", "contents": "print(\"===> ${1/'/\"/g}: %(s)s\" % {\"s\": $1})"}
-  ]
-}
