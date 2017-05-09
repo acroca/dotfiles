@@ -9,5 +9,16 @@
   "files.insertFinalNewline": true,
   "rest-client.enableTelemetry": false,
   "terminal.integrated.scrollback": 10000,
-  "vsicons.presets.hideFolders": false
+  "vsicons.presets.hideFolders": false,
+  "vsicons.dontShowNewVersionMessage": true,
+  "workbench.iconTheme": "vscode-icons",
+  "vsicons.projectDetection.autoReload": true,
+  "go.gotoSymbol.ignoreFolders": [
+    "vendor"
+  ],
+  "window.zoomLevel": 0,
+  "go.enableCodeLens": {
+    "references": true,
+    "runtest": true
+  }
 }

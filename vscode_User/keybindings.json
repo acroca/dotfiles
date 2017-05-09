@@ -1,7 +1,8 @@
 [
   {
     "key": "shift+cmd+j",
-    "command": "workbench.action.terminal.focus"
+    "command": "workbench.action.terminal.focus",
+    "when": "!terminalFocus"
   },{
     "key": "shift+cmd+]",
     "command": "workbench.action.nextEditor"
