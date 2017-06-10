@@ -5,11 +5,12 @@ Those are some dotfiles and config files I use.
 # Preparing a new computer
 
 - Generate a ssh key and add it to github.
-- `ln -s ~/workspace/dotfiles/gitconfig ~/.gitconfig`
 - Clone this repo: `mkdir -p ~/workspace/dotfiles && git clone git@github.com:acroca/dotfiles.git ~/workspace/dotfiles`
+- `ln -s ~/workspace/dotfiles/gitconfig ~/.gitconfig`
+- `ln -s ~/workspace/dotfiles/hammerspoon ~/.hammerspoon`
 - [brew](http://brew.sh/)
 - [Docker](https://www.docker.com/docker-mac)
-- [Slate](https://github.com/jigish/slate)
+- [HammerSpoon](http://www.hammerspoon.org/)
 - [vscode](https://code.visualstudio.com/)
 - [Zsh](https://github.com/robbyrussell/oh-my-zsh)
 - `ln -s ~/workspace/dotfiles/zshrc ~/.zshrc`

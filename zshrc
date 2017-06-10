@@ -4,7 +4,7 @@ ZSH_THEME="robbyrussell"
 
 CASE_SENSITIVE="true"
 
-plugins=(git docker coffee brew go npm sublime)
+plugins=(git docker go)
 
 export EDITOR="subl -n -w"
 export GOROOT="$HOME/workspace/go"
@@ -25,10 +25,3 @@ unsetopt AUTO_CD
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-if [ -f ~/.gnupg/.gpg-agent-info ] && [ -n "$(pgrep gpg-agent)" ]; then
-    source ~/.gnupg/.gpg-agent-info
-    export GPG_AGENT_INFO
-else
-    eval $(gpg-agent --daemon --write-env-file ~/.gnupg/.gpg-agent-info)
-fi

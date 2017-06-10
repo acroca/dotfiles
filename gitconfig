@@ -5,8 +5,7 @@
 [user]
   name = Albert Callarisa
   email = albert@acroca.com
-	signingkey = E6149DFDC69BCA5C
-
+	
 [alias]
   st = status -bs
   pr = pull --rebase
@@ -74,5 +73,3 @@
 
 [url "git@github.com:"]
   insteadOf = https://github.com/
-[commit]
-	gpgsign = true
