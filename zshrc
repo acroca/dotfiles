@@ -4,7 +4,7 @@ ZSH_THEME="robbyrussell"
 
 CASE_SENSITIVE="true"
 
-plugins=(git docker go)
+plugins=(git docker go rvm)
 
 export EDITOR="subl -n -w"
 export GOROOT="$HOME/workspace/go"
@@ -21,6 +21,9 @@ alias e="subl -n -w"
 source ~/private.sh
 source ~/.zshrc_functions
 source $ZSH/oh-my-zsh.sh
+
+# For some reason `ls` doesn't have colors
+alias ls="ls --color=tty"
 unsetopt AUTO_CD
 
 export LC_ALL=en_US.UTF-8

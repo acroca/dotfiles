@@ -3,7 +3,7 @@
     "prefix": "ps",
     "description": "Prints a variable to the console",
     "body": [
-      "IO.puts ~s|===> $1: #{inspect($1, char_lists: :as_lists)}|"
+      "IO.puts ~s|===> $1: #{inspect($1, charlists: :as_lists)}|"
     ]
   }
 /*

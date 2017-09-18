@@ -20,5 +20,6 @@
   "go.enableCodeLens": {
     "references": true,
     "runtest": true
-  }
+  },
+  "git.confirmSync": false
 }

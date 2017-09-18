@@ -86,5 +86,9 @@ hs.hotkey.bind({"cmd"}, "3", function()
   hs.application.launchOrFocus("Google Chrome")
 end)
 hs.hotkey.bind({"cmd"}, "4", function()
-  hs.application.launchOrFocus("WhatsApp")
+  if hs.application.frontmostApplication():title() == "WhatsApp" then
+    hs.application.launchOrFocus("Slack")
+  else
+    hs.application.launchOrFocus("WhatsApp")
+  end
 end)
