@@ -1,7 +1,7 @@
 {
   "editor.rulers": [
     80,
-    90
+    100
   ],
   "editor.tabSize": 2,
   "telemetry.enableTelemetry": false,
