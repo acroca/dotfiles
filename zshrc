@@ -7,10 +7,9 @@ CASE_SENSITIVE="true"
 plugins=(git docker go rvm)
 
 export EDITOR="subl -n -w"
-export GOROOT="$HOME/workspace/go"
-export GOROOT_BOOTSTRAP="$HOME/workspace/go1.4"
+export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH="$HOME/workspace/gocode"
-export PATH="$HOME/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.rvm/bin:./node_modules/.bin:$PATH"
+export PATH="$HOME/bin:/usr/local/opt/go/libexec/bin:$GOPATH/bin:$HOME/.rvm/bin:./node_modules/.bin:$PATH"
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 export PATH="./env/bin:$PATH"
 
@@ -28,3 +27,4 @@ unsetopt AUTO_CD
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
+export ERL_AFLAGS="-kernel shell_history enabled"
