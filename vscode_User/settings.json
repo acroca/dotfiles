@@ -18,8 +18,8 @@
   ],
   "window.zoomLevel": 0,
   "go.enableCodeLens": {
-    "references": true,
-    "runtest": true
+    "references": false,
+    "runtest": false
   },
   "git.confirmSync": false
 }
