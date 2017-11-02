@@ -9,7 +9,7 @@ plugins=(git docker go rvm)
 export EDITOR="subl -n -w"
 export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH="$HOME/workspace/gocode"
-export PATH="$HOME/bin:/usr/local/opt/go/libexec/bin:$GOPATH/bin:$HOME/.rvm/bin:./node_modules/.bin:$PATH"
+export PATH="$HOME/bin:/usr/local/opt/go/libexec/bin:$GOPATH/bin:$HOME/.rvm/bin:./node_modules/.bin:$HOME/.mix/escripts:$PATH"
 export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH
 export PATH="./env/bin:$PATH"
 

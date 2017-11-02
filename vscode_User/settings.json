@@ -21,5 +21,6 @@
     "references": false,
     "runtest": false
   },
-  "git.confirmSync": false
+  "git.confirmSync": false,
+  "emmet.includeLanguages": {"HTML (Eex)": "html"}
 }
