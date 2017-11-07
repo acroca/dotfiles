@@ -4,7 +4,7 @@ ZSH_THEME="robbyrussell"
 
 CASE_SENSITIVE="true"
 
-plugins=(git docker go rvm)
+plugins=(git docker go dotenv)
 
 export EDITOR="subl -n -w"
 export GOROOT="/usr/local/opt/go/libexec"
