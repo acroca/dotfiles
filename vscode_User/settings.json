@@ -22,5 +22,11 @@
     "runtest": false
   },
   "git.confirmSync": false,
-  "emmet.includeLanguages": {"HTML (Eex)": "html"}
+  "emmet.includeLanguages": {
+    "HTML (Eex)": "html"
+  },
+  "workbench.panel.location": "bottom",
+  "search.useIgnoreFilesByDefault": true,
+  "search.useIgnoreFiles": true,
+  "go.gocodeAutoBuild": false
 }
