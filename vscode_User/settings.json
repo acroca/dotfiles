@@ -25,8 +25,12 @@
   "emmet.includeLanguages": {
     "HTML (Eex)": "html"
   },
-  "workbench.panel.location": "bottom",
+  "workbench.panel.location": "right",
   "search.useIgnoreFilesByDefault": true,
   "search.useIgnoreFiles": true,
-  "go.gocodeAutoBuild": false
+  "go.gocodeAutoBuild": false,
+  "go.lintTool": "megacheck",
+  "files.associations": {
+    "Makefile.*": "makefile"
+  }
 }
