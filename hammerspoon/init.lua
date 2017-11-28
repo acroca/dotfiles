@@ -1,11 +1,3 @@
-local FRemap = require('foundation_remapping')
-local remapper = FRemap.new({vendorID=0x046d, productID=0xc315})
-
-remapper:remap('lalt', 'lcmd'):remap('lcmd', 'lalt')
-
-remapper:register()
-
-
 hs.window.animationDuration = 0
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "left", function()
   local win = hs.window.focusedWindow()
