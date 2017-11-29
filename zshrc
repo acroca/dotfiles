@@ -31,4 +31,3 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-hidutil property --filter '{"ProductID":0xc315,"VendorID":0x046d}' --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x7000000e2,"HIDKeyboardModifierMappingDst":0x7000000e3},{"HIDKeyboardModifierMappingSrc":0x7000000e3,"HIDKeyboardModifierMappingDst":0x7000000e2}]}' > /dev/null
