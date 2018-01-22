@@ -25,12 +25,22 @@
   "emmet.includeLanguages": {
     "HTML (Eex)": "html"
   },
-  "workbench.panel.location": "right",
-  "search.useIgnoreFilesByDefault": true,
   "search.useIgnoreFiles": true,
-  "go.gocodeAutoBuild": false,
   "go.lintTool": "megacheck",
   "files.associations": {
     "Makefile.*": "makefile"
-  }
+  },
+  "gitlens.advanced.messages": {
+    "suppressCommitHasNoPreviousCommitWarning": false,
+    "suppressCommitNotFoundWarning": false,
+    "suppressFileNotUnderSourceControlWarning": false,
+    "suppressGitVersionWarning": false,
+    "suppressLineUncommittedWarning": false,
+    "suppressNoRepositoryWarning": false,
+    "suppressUpdateNotice": true,
+    "suppressWelcomeNotice": true
+  },
+  "go.gocodeAutoBuild": false,
+  "go.formatTool": "goimports",
+  "go.lintOnSave": "off",
 }

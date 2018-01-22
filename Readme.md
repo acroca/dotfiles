@@ -21,27 +21,22 @@ Those are some dotfiles and config files I use.
 
 `code --list-extensions`:
 
-Arjun.swagger-viewer
+```
 EditorConfig.EditorConfig
 PeterJausovec.vscode-docker
-Tobiah.unity-tools
 alefragnani.project-manager
 donjayamanne.githistory
-donjayamanne.python
-formulahendry.code-runner
+eamodio.gitlens
 humao.rest-client
+josa.markdown-table-formatter
 kaiwood.center-editor-window
 lukehoban.Go
-marcostazi.VS-code-vagrantfile
 mjmcloug.vscode-elixir
-ms-vscode.csharp
-ms-vscode.omnisharp
-redhat.java
 robertohuertasm.vscode-icons
 wmaurer.change-case
 zhuangtongfa.Material-theme
 zxh404.vscode-proto3
-
+```
 
 #OSX
 

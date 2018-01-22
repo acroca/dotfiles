@@ -1,80 +1,34 @@
 hs.window.animationDuration = 0
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "left", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
 
-  f.x = max.x
-  f.y = max.y
-  f.w = max.w/2
-  f.h = max.h
-  win:setFrame(f)
-end)
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "right", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
+local push = function(x, y, w, h)
+  return function()
+    local win = hs.window.focusedWindow()
+    local f = win:frame()
+    local screen = win:screen()
+    local max = screen:frame()
+  
+    f.x = max.x + (max.w * x)
+    f.y = max.y + (max.h * y)
+    f.w = max.w * w
+    f.h = max.h * h
+    win:setFrame(f)
+  end
+end
 
-  f.x = max.x+(max.w/2)
-  f.y = max.y
-  f.w = max.w/2
-  f.h = max.h
-  win:setFrame(f)
-end)
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "left", push(0, 0, 0.5, 1))
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "up", push(0, 0, 1, 0.5))
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "right", push(0.5, 0, 0.5, 1))
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "down", push(0, 0.5, 1, 0.5))
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "up", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
+-- Shift to use corners, weird but I like it
+hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "left", push(0, 0, 0.5, 0.5))
+hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "up", push(0.5, 0, 0.5, 0.5))
+hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "right", push(0.5, 0.5, 0.5, 0.5))
+hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "down", push(0, 0.5, 0.5, 0.5))
 
-  f.x = max.x
-  f.y = max.y
-  f.w = max.w
-  f.h = max.h/2
-  win:setFrame(f)
-end)
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "m", push(0, 0, 1, 1))
+hs.hotkey.bind({"cmd", "alt", "ctrl"}, "n", push(0.1, 0.1, 0.8, 0.8))
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "down", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x
-  f.y = max.y+(max.h/2)
-  f.w = max.w
-  f.h = max.h/2
-  win:setFrame(f)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "m", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x
-  f.y = max.y
-  f.w = max.w
-  f.h = max.h
-  win:setFrame(f)
-end)
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "n", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x + (max.w * 0.1)
-  f.y = max.y + (max.h * 0.1)
-  f.w = max.w * 0.8
-  f.h = max.h * 0.8
-  win:setFrame(f)
-end)
 
 hs.hotkey.bind({"cmd"}, "1", function()
   hs.application.launchOrFocus("Visual Studio Code")
