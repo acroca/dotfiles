@@ -43,4 +43,10 @@
   "go.gocodeAutoBuild": false,
   "go.formatTool": "goimports",
   "go.lintOnSave": "off",
+  "remote.host": "0.0.0.0",
+  "explorer.openEditors.visible": 0,
+  "workbench.fontAliasing": "auto",
+  "terminal.integrated.copyOnSelection": true,
+  "explorer.confirmDragAndDrop": false,
+  "gitlens.keymap": "alternate",
 }
