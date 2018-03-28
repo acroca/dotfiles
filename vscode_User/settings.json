@@ -13,40 +13,30 @@
   "vsicons.dontShowNewVersionMessage": true,
   "workbench.iconTheme": "vscode-icons",
   "vsicons.projectDetection.autoReload": true,
-  "go.gotoSymbol.ignoreFolders": [
-    "vendor"
-  ],
   "window.zoomLevel": 0,
-  "go.enableCodeLens": {
-    "references": false,
-    "runtest": false
-  },
   "git.confirmSync": false,
   "emmet.includeLanguages": {
     "HTML (Eex)": "html"
   },
   "search.useIgnoreFiles": true,
-  "go.lintTool": "megacheck",
-  "files.associations": {
-    "Makefile.*": "makefile"
-  },
-  "gitlens.advanced.messages": {
-    "suppressCommitHasNoPreviousCommitWarning": false,
-    "suppressCommitNotFoundWarning": false,
-    "suppressFileNotUnderSourceControlWarning": false,
-    "suppressGitVersionWarning": false,
-    "suppressLineUncommittedWarning": false,
-    "suppressNoRepositoryWarning": false,
-    "suppressUpdateNotice": true,
-    "suppressWelcomeNotice": true
-  },
-  "go.gocodeAutoBuild": false,
-  "go.formatTool": "goimports",
-  "go.lintOnSave": "off",
-  "remote.host": "0.0.0.0",
   "explorer.openEditors.visible": 0,
   "workbench.fontAliasing": "auto",
   "terminal.integrated.copyOnSelection": true,
   "explorer.confirmDragAndDrop": false,
-  "gitlens.keymap": "alternate",
+  "files.associations": {
+    "Makefile.*": "makefile"
+  },
+
+  // Go
+  "go.gotoSymbol.ignoreFolders": [
+    "vendor"
+  ],
+  "go.enableCodeLens": {
+    "references": false,
+    "runtest": false
+  },
+  "go.lintTool": "gometalinter",
+  "go.gocodeAutoBuild": false,
+  "go.lintOnSave": "off",
+  "go.useLanguageServer": true,
 }
