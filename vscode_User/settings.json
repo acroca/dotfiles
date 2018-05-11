@@ -1,7 +1,7 @@
 {
   "editor.rulers": [
-    80,
-    100
+    100,
+    120
   ],
   "editor.tabSize": 2,
   "telemetry.enableTelemetry": false,
@@ -38,5 +38,5 @@
   "go.lintTool": "gometalinter",
   "go.gocodeAutoBuild": false,
   "go.lintOnSave": "off",
-  "go.useLanguageServer": true,
+  "go.vetOnSave": "off",
 }
