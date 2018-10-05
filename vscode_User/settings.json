@@ -13,18 +13,15 @@
   "vsicons.dontShowNewVersionMessage": true,
   "workbench.iconTheme": "vscode-icons",
   "vsicons.projectDetection.autoReload": true,
-  "window.zoomLevel": 0,
   "git.confirmSync": false,
-  "emmet.includeLanguages": {
-    "HTML (Eex)": "html"
-  },
   "search.useIgnoreFiles": true,
   "explorer.openEditors.visible": 0,
   "workbench.fontAliasing": "auto",
   "terminal.integrated.copyOnSelection": true,
   "explorer.confirmDragAndDrop": false,
   "files.associations": {
-    "Makefile.*": "makefile"
+    "Makefile.*": "makefile",
+    "Dockerfile-*": "dockerfile"
   },
 
   // Go
@@ -35,8 +32,22 @@
     "references": false,
     "runtest": false
   },
-  "go.lintTool": "gometalinter",
-  "go.gocodeAutoBuild": false,
+  "go.lintTool": "revive",
   "go.lintOnSave": "off",
   "go.vetOnSave": "off",
+  "go.useLanguageServer": true,
+  
+  "sync.gist": "7292ac87c9a333c9bdb409000de0f76c",
+  "sync.quietSync": false,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true,
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.forceDownload": false,
+  "[go]": {
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": true
+  },
+  "projectManager.groupList": true,
+  "projectManager.openInNewWindowWhenClickingInStatusBar": true,
 }
