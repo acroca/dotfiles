@@ -22,19 +22,26 @@ Those are some dotfiles and config files I use.
 `code --list-extensions`:
 
 ```
-EditorConfig.EditorConfig
-PeterJausovec.vscode-docker
 alefragnani.project-manager
-donjayamanne.githistory
-eamodio.gitlens
+alexkrechik.cucumberautocomplete
+bung87.rails
+bung87.vscode-gemfile
+bungcip.better-toml
+EditorConfig.EditorConfig
+evanvujcec.ace
 humao.rest-client
-josa.markdown-table-formatter
-kaiwood.center-editor-window
-lukehoban.Go
+JuanBlanco.solidity
+mauve.terraform
 mjmcloug.vscode-elixir
+ms-vscode.Go
+naereen.makefiles-support-for-vscode
+PeterJausovec.vscode-docker
 robertohuertasm.vscode-icons
+robinbentley.sass-indented
+sbrink.elm
+sianglim.slim
+wholroyd.jinja
 wmaurer.change-case
-zhuangtongfa.Material-theme
 zxh404.vscode-proto3
 ```
 
