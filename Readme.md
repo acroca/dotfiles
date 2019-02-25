@@ -7,6 +7,8 @@ Those are some dotfiles and config files I use.
 - Generate a ssh key and add it to github.
 - Clone this repo: `mkdir -p ~/workspace/dotfiles && git clone git@github.com:acroca/dotfiles.git ~/workspace/dotfiles`
 - `ln -s ~/workspace/dotfiles/gitconfig ~/.gitconfig`
+- `ln -s ~/workspace/dotfiles/gitconfig-personal ~/.gitconfig-personal`
+- `ln -s ~/workspace/dotfiles/gitconfig-form3 ~/.gitconfig-form3`
 - `ln -s ~/workspace/dotfiles/hammerspoon ~/.hammerspoon`
 - [brew](http://brew.sh/)
 - [Docker](https://www.docker.com/docker-mac)
