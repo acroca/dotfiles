@@ -23,6 +23,9 @@
     "Makefile.*": "makefile",
     "Dockerfile-*": "dockerfile"
   },
+  "projectManager.groupList": true,
+  "projectManager.openInNewWindowWhenClickingInStatusBar": true,
+  "editor.tabCompletion": "on",
 
   // Go
   "go.gotoSymbol.ignoreFolders": [
@@ -35,19 +38,5 @@
   "go.lintTool": "revive",
   "go.lintOnSave": "off",
   "go.vetOnSave": "off",
-  "go.useLanguageServer": true,
-  
-  "sync.gist": "7292ac87c9a333c9bdb409000de0f76c",
-  "sync.quietSync": false,
-  "sync.removeExtensions": true,
-  "sync.syncExtensions": true,
-  "sync.autoDownload": false,
-  "sync.autoUpload": false,
-  "sync.forceDownload": false,
-  "[go]": {
-    "editor.insertSpaces": false,
-    "editor.formatOnSave": true
-  },
-  "projectManager.groupList": true,
-  "projectManager.openInNewWindowWhenClickingInStatusBar": true,
+  "go.formatTool": "goimports"
 }
