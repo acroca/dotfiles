@@ -25,6 +25,7 @@ export PATH="$GOBIN:$PATH"
 export PATH="./bin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 export PATH="./env/bin:$PATH"
+export PATH="/usr/local/Cellar/libpq/11.1/bin/:$PATH"
 
 alias sync_drive="rsync -avh --ignore-existing"
 alias e="code --wait"
