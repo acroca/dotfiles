@@ -3,7 +3,7 @@
     "prefix": "ps",
     "description": "Print out a variable",
     "body": [
-      "fmt.Printf(\"${TM_FILENAME}:${TM_LINE_NUMBER} ===> %[2]v: %[1]v\\n\", $1, `$1`)"
+      "fmt.Printf(\"❌===> %[2]v: %+[1]v\\n\", $1, `$1`)"
     ]
   }
 }

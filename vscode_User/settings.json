@@ -7,7 +7,6 @@
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
   "files.insertFinalNewline": true,
-  "rest-client.enableTelemetry": false,
   "terminal.integrated.scrollback": 10000,
   "vsicons.presets.hideFolders": false,
   "vsicons.dontShowNewVersionMessage": true,
@@ -23,8 +22,6 @@
     "Makefile.*": "makefile",
     "Dockerfile-*": "dockerfile"
   },
-  "projectManager.groupList": true,
-  "projectManager.openInNewWindowWhenClickingInStatusBar": true,
   "editor.tabCompletion": "on",
 
   // Go
@@ -38,5 +35,8 @@
   "go.lintTool": "revive",
   "go.lintOnSave": "off",
   "go.vetOnSave": "off",
-  "go.formatTool": "goimports"
+  "go.formatTool": "goimports",
+  "gitlens.currentLine.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
+  "gitlens.codeLens.recentChange.enabled": false
 }
