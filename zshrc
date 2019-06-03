@@ -4,7 +4,7 @@ ZSH_THEME="robbyrussell"
 
 CASE_SENSITIVE="true"
 
-plugins=(git docker go dotenv kubectl)
+plugins=(git docker docker-compose golang helm httpie terraform kubectl)
 
 export EDITOR="code --wait"
 export LC_ALL=en_US.UTF-8
