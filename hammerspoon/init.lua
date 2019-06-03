@@ -37,7 +37,7 @@ hs.hotkey.bind({"cmd"}, "2", function()
   hs.application.launchOrFocus("Terminal")
 end)
 hs.hotkey.bind({"cmd"}, "3", function()
-  hs.application.launchOrFocus("Firefox")
+  hs.application.launchOrFocus("Google Chrome")
 end)
 hs.hotkey.bind({"cmd"}, "4", function()
   if hs.application.frontmostApplication():title() == "Slack" then
