@@ -43,7 +43,6 @@
   },
   "gopls": {
     "usePlaceholders": true, // add parameter placeholders when completing a function
-    "enhancedHover": true, // experimental to improve quality of hover (will be on by default soon)
   },
   "gitlens.currentLine.enabled": false,
   "gitlens.codeLens.authors.enabled": false,
@@ -56,5 +55,6 @@
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true
-  }
+  },
+  "files.eol": "\n", // formatting only supports LF line endings
 }
