@@ -1,8 +1,8 @@
 [core]
-	excludesfile = /Users/albert/workspace/dotfiles/gitignore
+	excludesfile = /home/albert/workspace/dotfiles/gitignore
 	editor = code --wait
 	pager = less -F -X
-
+  
 [includeIf "gitdir:~/workspace/"]
   path = .gitconfig-personal
 [includeIf "gitdir:~/f3/"]

@@ -1,7 +1,7 @@
 [user]
   name = Albert Callarisa Roca
   email = albert.callarisa@form3.tech
-  signkey = CBE825242CB7A5A7
+  signkey = 902736B8A669B29F
 
 [secrets]
 	providers = git secrets --aws-provider
