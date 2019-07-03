@@ -12,6 +12,7 @@ export LANG=en_US.UTF-8
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 export PATH=$PATH:/usr/local/opt/coreutils/libexec/gnubin
+export PATH="$HOME/f3/go/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.rvm/bin:$PATH"
 export PATH="$HOME/.mix/escripts:$PATH"
@@ -24,7 +25,6 @@ export PATH="/usr/local/Cellar/libpq/11.1/bin/:$PATH"
 
 alias sync_drive="rsync -avh --ignore-existing"
 alias e="code --wait"
-alias spotify="spotify --force-device-scale-factor=2"
 
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
