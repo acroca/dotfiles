@@ -30,7 +30,7 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -178,7 +178,12 @@ bar {
         status_command i3status
 }
 
-bindsym $mod+Print exec maim -s ~/Desktop/$(date +%s).png
+bindsym $mod+Print exec --no-startup-id maim -s ~/Desktop/$(date +%s).png
+bindsym $mod+m exec --no-startup-id ~/workspace/dotfiles/screens.sh
+
+# [ and ] keys to move workspaces to different monitors
+bindcode $mod+34 move workspace to output left
+bindcode $mod+35 move workspace to output right
 
 exec --no-startup-id compton --config ~/.config/compton.conf -b
 exec --no-startup-id xset r rate 185 50

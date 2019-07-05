@@ -10,6 +10,7 @@ export EDITOR="code --wait"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export ERL_AFLAGS="-kernel shell_history enabled"
+export TERM="xterm-color" # To make termite happy in remote hosts
 
 export PATH=$PATH:/usr/local/opt/coreutils/libexec/gnubin
 export PATH="$HOME/f3/go/bin:$PATH"
