@@ -25,12 +25,12 @@
     "references": false,
     "runtest": false
   },
-  "go.gopath": "~/f3/go",
+  "go.gopath": "/home/albert/go",
   "go.lintTool": "golangci-lint",
   "go.lintOnSave": "off",
   "go.vetOnSave": "off",
   "go.formatTool": "goimports",
-  "go.useLanguageServer": true,
+  "go.useLanguageServer": false,
   "go.languageServerExperimentalFeatures": {
     "diagnostics": true // for diagnostics as you type
   },
@@ -47,7 +47,6 @@
   "gitlens.codeLens.authors.enabled": false,
   "gitlens.codeLens.recentChange.enabled": false,
   "editor.suggestSelection": "first",
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "window.zoomLevel": 0,
   "files.exclude": {
     "**/.classpath": true,
@@ -58,4 +57,5 @@
   "files.eol": "\n",
   "workbench.iconTheme": "vscode-icons",
   "window.menuBarVisibility": "toggle",
+  "editor.fontSize": 12,
 }

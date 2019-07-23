@@ -11,3 +11,4 @@ SublimeUserPackage/SublimeLinter/*
 vscode_User/workspaceStorage
 vscode_User/projects.json
 vscode_User/globalStorage/state.*
+.config/polybar/log.txt
