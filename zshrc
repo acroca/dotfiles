@@ -23,6 +23,8 @@ export PATH="./bin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 export PATH="./env/bin:$PATH"
 export PATH="/usr/local/Cellar/libpq/11.1/bin/:$PATH"
+export PATH="$PATH:/usr/lib/jvm/jdk1.8.0_212/bin"
+export JAVA_HOME="/usr/lib/jvm/jdk1.8.0_212"
 
 alias sync_drive="rsync -avh --ignore-existing"
 alias e="code --wait"

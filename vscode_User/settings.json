@@ -7,17 +7,13 @@
   "telemetry.enableTelemetry": false,
   "telemetry.enableCrashReporter": false,
   "files.insertFinalNewline": true,
-  "terminal.integrated.scrollback": 10000,
   "git.confirmSync": false,
   "search.useIgnoreFiles": true,
   "explorer.openEditors.visible": 0,
-  "terminal.integrated.copyOnSelection": true,
-  "explorer.confirmDragAndDrop": false,
   "files.associations": {
     "Makefile.*": "makefile",
     "Dockerfile-*": "dockerfile"
   },
-  "editor.tabCompletion": "on",
   "go.gotoSymbol.ignoreFolders": [
     "vendor"
   ],
@@ -30,7 +26,7 @@
   "go.lintOnSave": "off",
   "go.vetOnSave": "off",
   "go.formatTool": "goimports",
-  "go.useLanguageServer": false,
+  "go.useLanguageServer": true,
   "go.languageServerExperimentalFeatures": {
     "diagnostics": true // for diagnostics as you type
   },
@@ -58,4 +54,11 @@
   "workbench.iconTheme": "vscode-icons",
   "window.menuBarVisibility": "toggle",
   "editor.fontSize": 12,
+  "java.home": "/usr/lib/jvm/jdk1.8.0_212",
+  "java.jdt.ls.vmargs": "-noverify -Xmx1G -XX:+UseG1GC -XX:+UseStringDeduplication -javaagent:\"/home/albert/.vscode/extensions/gabrielbb.vscode-lombok-0.9.8/server/lombok.jar\"",
+  "java.test.message.hintForSetingDefaultConfig": false,
+  "editor.fontLigatures": true,
+  "vsicons.dontShowNewVersionMessage": true,
+  "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "workbench.colorTheme": "Material Theme Darker High Contrast",
 }

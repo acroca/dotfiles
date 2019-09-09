@@ -29,6 +29,8 @@ font pango:DejaVu Sans Mono 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+hide_edge_borders smart
+
 # start a terminal
 bindsym $mod+Return exec termite
 
@@ -190,8 +192,10 @@ bindsym $mod+m exec --no-startup-id ~/workspace/dotfiles/screens.sh
 bindcode $mod+34 move workspace to output left
 bindcode $mod+35 move workspace to output right
 
+exec --no-startup-id xset +fp /home/albert/.local/share/fonts
+exec --no-startup-id xset fp rehash
 exec --no-startup-id xset r rate 185 50
-exec --no-startup-id setxkbmap -option compose:sclk
+exec --no-startup-id setxkbmap -option compose:ralt
 exec_always --no-startup-id ~/workspace/dotfiles/screens.sh
 exec --no-startup-id nm-applet
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
