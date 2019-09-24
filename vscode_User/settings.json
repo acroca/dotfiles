@@ -61,4 +61,6 @@
   "vsicons.dontShowNewVersionMessage": true,
   "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
   "workbench.colorTheme": "Material Theme Darker High Contrast",
+  "explorer.confirmDragAndDrop": false,
+  "editor.cursorSurroundingLines": 10,
 }
