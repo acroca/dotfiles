@@ -1,14 +1,14 @@
 #!/bin/bash
-intern=eDP-1-1
-extern=DP-1-3
+internal=eDP-1-1
+external=DP-1-3
 
 
-if xrandr | grep "$extern disconnected"; then
-  xrandr --output "$extern" --off --output "$intern" --auto
+if xrandr | grep "$external disconnected"; then
+  xrandr --output "$external" --off --output "$internal" --auto
 elif cat /proc/acpi/button/lid/LID0/state | grep "closed"; then
-  xrandr --output "$intern" --off --output "$extern" --auto
+  xrandr --output "$internal" --off --output "$external" --auto
 else
   xrandr \
-    --output  DP-1-3 --auto --scale 2x2 --primary --right-of eDP-1-1 \
-    --output eDP-1-1 --auto --pos 0x0
+    --output $external --auto --scale 2x2 --primary --right-of $internal \
+    --output $internal --auto --pos 0x0
 fi
