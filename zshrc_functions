@@ -1,9 +1,0 @@
-# Runs a redis-cli connected to the specified docker container (1st argument)
-function redis-cli (){
-  if (( $# == 0 ))
-    then
-      echo usage: redis-cli docker-container
-      return
-  fi
-  docker exec -it $1 redis-cli
-}

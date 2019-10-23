@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /home/albert/workspace/dotfiles/gitignore
+	excludesfile = ~/.gitignore
 	editor = code --wait
 	pager = less -F -X
   

@@ -258,7 +258,7 @@ tail = true
 interval = 0
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-click-left = /bin/firefox https://github.com/notifications
+click-left = /bin/firefox https://github.com/notifications && i3-msg workspace 3
 
 [module/battery]
 type = internal/battery

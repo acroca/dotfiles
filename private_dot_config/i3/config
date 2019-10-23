@@ -172,8 +172,8 @@ bindsym XF86AudioStop exec --no-startup-id "playerctl stop"
 bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
 bindsym XF86AudioNext exec --no-startup-id "playerctl next"
 
-bindsym XF86MonBrightnessUp exec --no-startup-id ~/workspace/dotfiles/brightness.sh + eDP-1-1 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id ~/workspace/dotfiles/brightness.sh - eDP-1-1 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/brightness.sh + eDP-1-1 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/brightness.sh - eDP-1-1 # decrease screen brightness
 
 for_window [class="zoom" instance="zoom"] floating enable
 
@@ -186,7 +186,7 @@ bindsym $mod+r mode "resize"
 #}
 
 bindsym $mod+Print exec --no-startup-id maim -s ~/Desktop/$(date +%s).png
-bindsym $mod+m exec --no-startup-id ~/workspace/dotfiles/screens.sh
+bindsym $mod+m exec --no-startup-id ~/.config/i3/screens.sh
 
 # [ and ] keys to move workspaces to different monitors
 bindcode $mod+34 move workspace to output left
@@ -196,7 +196,7 @@ exec --no-startup-id xset +fp /home/albert/.local/share/fonts
 exec --no-startup-id xset fp rehash
 exec --no-startup-id xset r rate 185 50
 exec --no-startup-id setxkbmap -option compose:ralt
-exec_always --no-startup-id ~/workspace/dotfiles/screens.sh
+exec_always --no-startup-id ~/.config/i3/screens.sh
 exec --no-startup-id nm-applet
 exec_always --no-startup-id ~/.config/polybar/launch.sh 
 
