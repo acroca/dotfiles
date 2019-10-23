@@ -5,8 +5,10 @@
   
 [user]
   name = Albert Callarisa
-  email = albert.callarisa@form3.tech
+  email = {{ .email }}
+{{- if eq .email "albert.callarisa@form3.tech" }}
   signingkey = 5B877837B44A8D92
+{{- end }}
 
 [commit]
 	gpgsign = true	
