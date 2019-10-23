@@ -10,8 +10,11 @@
   signingkey = 5B877837B44A8D92
 {{- end }}
 
+
+{{- if eq .email "albert.callarisa@form3.tech" }}
 [commit]
 	gpgsign = true	
+{{- end }}
 
 [alias]
   st = status -bs
