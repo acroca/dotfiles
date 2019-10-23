@@ -1,6 +1,13 @@
 #!/bin/bash
+
+{{- if eq .email "albert.callarisa@form3.tech" }}
 internal=eDP-1-1
 external=DP-1-3
+{{- end }}
+{{- if eq .email "albert@acroca.com" }}
+internal=eDP-1
+external=HDMI-2
+{{- end }}
 
 
 if xrandr | grep "$external disconnected"; then
