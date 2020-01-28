@@ -31,24 +31,28 @@
     "diagnostics": true // for diagnostics as you type
   },
   "[go]": {
-    "editor.snippetSuggestions": "top",
+    // "editor.snippetSuggestions": "top",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": true,
+      "source.organizeImports": true,
     }
   },
   "gopls": {
     "usePlaceholders": true, // add parameter placeholders when completing a function
-
     // Experimental settings
     "completeUnimported": true, // autocomplete unimported packages
-    "watchChangedFiles": true,  // watch file changes outside of the editor
     "deepCompletion": true,     // enable deep completion
   },
   "gitlens.currentLine.enabled": false,
   "gitlens.codeLens.authors.enabled": false,
   "gitlens.codeLens.recentChange.enabled": false,
-  "editor.suggestSelection": "first",
+  "editor.quickSuggestions": {
+    "other": false,
+    "comments": false,
+    "strings": false
+  },
+  "editor.snippetSuggestions": "top",
+  "editor.tabCompletion": "onlySnippets",
   "window.zoomLevel": 0,
   "files.exclude": {
     "**/.classpath": true,
@@ -57,7 +61,7 @@
     "**/.factorypath": true
   },
   "files.eol": "\n",
-  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+  "workbench.iconTheme": "vscode-icons",
   "window.menuBarVisibility": "toggle",
   "editor.fontSize": 12,
   "java.home": "/usr/lib/jvm/jdk1.8.0_212",
@@ -106,5 +110,5 @@
       "**/.terraform/**/*"
     ]
   },
-  "editor.acceptSuggestionOnEnter": "off",
+  "diffEditor.ignoreTrimWhitespace": "off",
 }

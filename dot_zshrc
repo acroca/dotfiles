@@ -1,6 +1,7 @@
 export ZSH=~/.oh-my-zsh
 
-ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
+ZSH_THEME="spaceship"
 
 CASE_SENSITIVE="true"
 
@@ -26,6 +27,7 @@ export PATH="$PATH:/usr/lib/jvm/jdk1.8.0_212/bin"
 
 alias sync_drive="rsync -avh --ignore-existing"
 alias e="code --wait"
+alias tfswitch="/usr/local/bin/tfswitch -b /home/albert/bin/terraform"
 
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
@@ -34,3 +36,4 @@ zstyle ':completion:*' cache-path ~/.zsh/cache
 source ~/private.sh
 
 source $ZSH/oh-my-zsh.sh
+source /home/albert/.config/broot/launcher/bash/br
