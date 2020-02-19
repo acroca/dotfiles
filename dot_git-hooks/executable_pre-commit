@@ -1,0 +1,17 @@
+#!/bin/sh
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=$(git hash-object -t tree /dev/null)
+fi
+
+exec 1>&2
+
+if test $(git diff --cached $against | grep -e '^\+.*===>.*$' | wc -c) != 0
+then
+    echo "You forgot a debug line ===>..."
+    exit 1
+fi
