@@ -5,7 +5,7 @@ ZSH_THEME="spaceship"
 
 CASE_SENSITIVE="true"
 
-plugins=(git docker docker-compose golang helm httpie terraform kubectl)
+plugins=(git docker docker-compose golang)
 
 export EDITOR="code --wait"
 export LC_ALL=en_US.UTF-8

@@ -11,11 +11,15 @@ external=HDMI-2
 
 
 if xrandr | grep "$external disconnected"; then
+  {{- if (index . "dpi") }}
   xrandr --output "$external" --off --output "$internal" --auto
+  {{- else }}
+  xrandr --output "$external" --off --output "$internal" --auto --mode 1920x1080
+  {{- end }}
 elif cat /proc/acpi/button/lid/LID0/state | grep "closed"; then
   xrandr --output "$internal" --off --output "$external" --auto
 else
   xrandr \
-    --output $external --auto --scale 2x2 --primary --right-of $internal \
-    --output $internal --auto --pos 0x0
+    --output $external --primary --mode 2560x1440 --pos 1920x0 \
+    --output $internal --mode 1920x1080 --pos 0x0
 fi

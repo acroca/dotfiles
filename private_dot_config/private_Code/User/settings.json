@@ -70,7 +70,7 @@
   "editor.fontLigatures": true,
   "vsicons.dontShowNewVersionMessage": true,
   "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-  "workbench.colorTheme": "Material Theme Darker High Contrast",
+  "workbench.colorTheme": "One Dark Pro",
   "explorer.confirmDragAndDrop": false,
   "editor.cursorSurroundingLines": 4,
   "materialTheme.accent": "Yellow",
@@ -110,5 +110,5 @@
       "**/.terraform/**/*"
     ]
   },
-  "diffEditor.ignoreTrimWhitespace": "off",
+  "diffEditor.ignoreTrimWhitespace": false,
 }

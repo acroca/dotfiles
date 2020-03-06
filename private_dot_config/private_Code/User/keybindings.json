@@ -19,11 +19,8 @@
     "when": "editorFocus"
   },
   {
-    "key": "alt+cmd+p",
-    "command": "projectManager.listProjectsNewWindow"
-  },
-  {
-    "key": "alt+cmd+p",
-    "command": "-projectManager.listProjects"
+    "key": "ctrl+shift+d",
+    "command": "editor.action.smartSelect.expand",
+    "when": "editorTextFocus"
   }
 ]

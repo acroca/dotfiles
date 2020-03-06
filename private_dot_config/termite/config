@@ -3,33 +3,51 @@ font = Monospace 9
 scrollback_lines = 100000
 
 [colors]
-# special
-foreground      = #d4d4d4
-foreground_bold = #d4d4d4
-cursor          = #D8DEE9
-background      = #1e1e1e
+# Base16 OneDark https://github.com/khamer/base16-termite/blob/master/themes/base16-onedark.config
+# Author: Lalit Magant (http://github.com/tilal6991)
 
-# black
-color0  = #3B4252
-color8  = #4C566A
-# red
-color1  = #BF616A
-color9  = #BF616A
-# green
-color2  = #A3BE8C
-color10 = #A3BE8C
-# yellow
-color3  = #EBCB8B
-color11 = #EBCB8B
-# blue
-color4  = #81A1C1
-color12 = #81A1C1
-# magenta
-color5  = #B48EAD
-color13 = #B48EAD
-# cyan
-color6  = #88C0D0
-color14 = #8FBCBB
-# white
-color7  = #E5E9F0
-color15 = #ECEFF4
+foreground          = #abb2bf
+foreground_bold     = #b6bdca
+cursor              = #b6bdca
+cursor_foreground   = #282c34
+background          = rgba(40, 44, 52)
+
+# 16 color space
+
+# Black, Gray, Silver, White
+color0  = #282c34
+color8  = #545862
+color7  = #abb2bf
+color15 = #c8ccd4
+
+# Red
+color1  = #e06c75
+color9  = #e06c75
+
+# Green
+color2  = #98c379
+color10 = #98c379
+
+# Yellow
+color3  = #e5c07b
+color11 = #e5c07b
+
+# Blue
+color4  = #61afef
+color12 = #61afef
+
+# Purple
+color5  = #c678dd
+color13 = #c678dd
+
+# Teal
+color6  = #56b6c2
+color14 = #56b6c2
+
+# Extra colors
+color16 = #d19a66
+color17 = #be5046
+color18 = #353b45
+color19 = #3e4451
+color20 = #565c64
+color21 = #b6bdca

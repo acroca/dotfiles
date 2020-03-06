@@ -1,4 +1,6 @@
-Xft.dpi: 220
+{{- if (index . "dpi") }}
+Xft.dpi: {{ .dpi }}
+{{- end }}
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
