@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+curl -s -H "Authorization: token $GITHUB_TOKEN" https://api.github.com/notifications | jq 'if type=="array" then .|length else .message end'
