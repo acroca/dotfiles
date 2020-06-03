@@ -28,17 +28,9 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
-
-{{- if (index . "dpi") }}
-dpi = {{ .dpi }}
-{{- end }}
+monitor = eDP-1-1
 width = 100%
-{{- if (index . "polybar_height") }}
-height = {{ .polybar_height }}
-{{- else }}
 height = 32
-{{- end }}
 
 ;offset-x = 1%
 ;offset-y = 1%
@@ -72,11 +64,7 @@ modules-center =
 modules-right = pulseaudio memory cpu wlan battery date github
 
 tray-position = right
-{{- if (index . "") }}
-tray-maxsize = {{ .polybar_tray_maxsize}}
-{{- else }}
 tray-maxsize = 16
-{{- end }}
 
 
 ;wm-restack = bspwm
@@ -265,8 +253,7 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 [module/github]
 type = custom/script
 exec = gh-notifications
-tail = true
-interval = 0
+interval = 60
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 click-left = /bin/firefox https://github.com/notifications && i3-msg workspace 3

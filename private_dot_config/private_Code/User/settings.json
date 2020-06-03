@@ -75,9 +75,9 @@
   ],
   "terraform.languageServer": {
     "enabled": true,
-    "args": []
+    "args": [],
+    "installCommonProviders": true
   },
-  "terraform.templateDirectory": "/tf/",
   "terraform.indexing": {
     "enabled": false,
     "liveIndexing": false,
