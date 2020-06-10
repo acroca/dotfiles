@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 killall -q polybar
 
@@ -11,4 +11,5 @@ export MONITOR=eDP-1-1
 export MONITOR=eDP-1
 {{- end }}
 
+source ~/private.sh
 polybar -c ~/.config/polybar/config example  2> ~/.config/polybar/log.txt &

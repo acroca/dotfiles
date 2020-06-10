@@ -70,21 +70,10 @@
   "workbench.colorTheme": "One Monokai",
   "explorer.confirmDragAndDrop": false,
   "editor.cursorSurroundingLines": 4, 
-  "terraform.paths": [
-    "/home/albert/.terraform.versions"
-  ],
   "terraform.languageServer": {
-    "enabled": true,
-    "args": [],
-    "installCommonProviders": true
-  },
-  "terraform.indexing": {
-    "enabled": false,
-    "liveIndexing": false,
-    "delay": 500,
-    "exclude": [
-      ".terraform/**/*",
-      "**/.terraform/**/*"
+    "external": true,
+    "args": [
+      "serve"
     ]
   },
   "diffEditor.ignoreTrimWhitespace": false,
@@ -96,4 +85,7 @@
   "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/home/albert/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
   "java.requirements.JDK11Warning": false,
   "java.semanticHighlighting.enabled": false,
+  "[terraform]": {
+    "editor.defaultFormatter": "hashicorp.terraform"
+  },
 }
