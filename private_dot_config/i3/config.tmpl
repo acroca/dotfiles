@@ -187,7 +187,9 @@ bindsym XF86AudioNext exec --no-startup-id "playerctl next"
 bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/brightness.sh + eDP-1-1 # increase screen brightness
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/brightness.sh - eDP-1-1 # decrease screen brightness
 
-for_window [class="zoom" instance="zoom"] floating enable
+for_window [class="zoom" instance="zoom"] floating enable, move container to workspace 8
+for_window [class="Firefox"] border pixel 1
+
 
 bindsym $mod+r mode "resize"
 
@@ -208,6 +210,7 @@ exec --no-startup-id xset +fp /home/albert/.local/share/fonts
 exec --no-startup-id xset fp rehash
 exec_always --no-startup-id xset r rate 185 50
 exec_always --no-startup-id setxkbmap -option compose:ralt
+exec_always --no-startup-id setxkbmap -option caps:ctrl_modifier
 exec_always --no-startup-id xcompmgr
 exec_always --no-startup-id ~/.config/i3/screens.sh
 exec --no-startup-id nm-applet
