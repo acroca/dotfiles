@@ -40,7 +40,7 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #2B2C2B
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -189,7 +189,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/brightness.sh - 
 
 for_window [class="zoom" instance="zoom"] floating enable, move container to workspace 8
 for_window [class="Firefox"] border pixel 1, move container to workspace 3
-for_window [class="termite"] move container to workspace 2
+for_window [class="alacritty"] move container to workspace 2
 for_window [class="code"] move container to workspace 1
 for_window [class="slack"] move container to workspace 4
 for_window [class="web.whatsapp.com"] move container to workspace 4
