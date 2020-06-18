@@ -188,7 +188,13 @@ bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/brightness.sh + eD
 bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/brightness.sh - eDP-1-1 # decrease screen brightness
 
 for_window [class="zoom" instance="zoom"] floating enable, move container to workspace 8
-for_window [class="Firefox"] border pixel 1
+for_window [class="Firefox"] border pixel 1, move container to workspace 3
+for_window [class="termite"] move container to workspace 2
+for_window [class="code"] move container to workspace 1
+for_window [class="slack"] move container to workspace 4
+for_window [class="web.whatsapp.com"] move container to workspace 4
+for_window [class="spotify"] move container to workspace 9
+for_window [class="web.notion.so"] move container to workspace 9
 
 
 bindsym $mod+r mode "resize"

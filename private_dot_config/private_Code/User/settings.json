@@ -88,4 +88,5 @@
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
   },
+  "window.title": "${rootName}${dirty}",
 }
