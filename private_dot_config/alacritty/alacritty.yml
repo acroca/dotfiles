@@ -85,7 +85,7 @@ scrolling:
 
   # Number of lines the viewport will move for every line scrolled when
   # scrollback is enabled (history > 0).
-  multiplier: 20
+  multiplier: 10
 
 # Font configuration
 font:
@@ -185,7 +185,7 @@ colors:
     black:   '#282c34'
     red:     '#e06c75'
     green:   '#98c379'
-    yellow:  '#d19a66'
+    yellow:  '#e5c07b'
     blue:    '#61afef'
     magenta: '#c678dd'
     cyan:    '#56b6c2'
@@ -196,7 +196,7 @@ colors:
     black:   '#5c6370'
     red:     '#e06c75'
     green:   '#98c379'
-    yellow:  '#d19a66'
+    yellow:  '#e5c07b'
     blue:    '#61afef'
     magenta: '#c678dd'
     cyan:    '#56b6c2'
@@ -570,7 +570,7 @@ colors:
   #- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
   #- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
 key_bindings:
-  - { key: Return,   mods: Control|Shift, action: SpawnNewInstance }
+  - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
 #debug:
   # Display the time it takes to redraw each frame.
   #render_timer: false
