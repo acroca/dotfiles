@@ -1,29 +1,21 @@
 #!/bin/bash
 
-{{- if eq .email "albert.callarisa@form3.tech" }}
-internal=eDP-1-1
-external=DP-1-3
-laptop_res_w=1920
-laptop_res_h=1080
-{{- end }}
-{{- if eq .email "albert@acroca.com" }}
-internal=eDP-1
-external=HDMI-2
-laptop_res_w=1440
-laptop_res_h=900
-{{- end }}
+{{- if (index . "external_screen") }}
 
-
-if xrandr | grep "$external disconnected"; then
+if xrandr | grep "{{ .external_screen }} disconnected"; then
   {{- if (index . "dpi") }}
-  xrandr --output "$external" --off --output "$internal" --auto
+  xrandr --output "{{ .external_screen }}" --off --output "{{ .internal_screen }}" --auto
   {{- else }}
-  xrandr --output "$external" --off --output "$internal" --auto --mode "$laptop_res_w"x"$laptop_res_h"
+  xrandr --output "{{ .external_screen }}" --off --output "{{ .internal_screen }}" --auto --mode "{{ .internal_screen_w }}"x"{{ .internal_screen_h }}"
   {{- end }}
 elif cat /proc/acpi/button/lid/LID0/state | grep "closed"; then
-  xrandr --output "$internal" --off --output "$external" --auto
+  xrandr --output "{{ .internal_screen }}" --off --output "{{ .external_screen }}" --auto
 else
   xrandr \
-    --output $external --primary --mode 2560x1440 --pos "$laptop_res_w"x0 \
-    --output $internal --mode "$laptop_res_w"x"$laptop_res_h" --pos 0x0
+    --output {{ .external_screen }} --primary --mode {{ .external_screen_w }}"x"{{ .external_screen_h }}" --pos "{{ .internal_screen_w }}"x0 \
+    --output {{ .internal_screen }} --mode "{{ .internal_screen_w }}"x"{{ .internal_screen_h }}" --pos 0x0
 fi
+
+{{- else }}
+  xrandr --auto
+{{- end }}

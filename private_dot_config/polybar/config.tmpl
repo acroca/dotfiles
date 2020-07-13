@@ -28,9 +28,18 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
-monitor = eDP-1-1
+{{- if (index . "external_screen") }}
+monitor = {{ .external_screen }}
+{{- end }}
+{{- if (index . "dpi") }}
+dpi = {{ .dpi }}
+{{- end }}
 width = 100%
+{{- if and (index . "dpi") (eq .dpi 220) }}
+height = 64
+{{- else }}
 height = 32
+{{- end }}
 
 ;offset-x = 1%
 ;offset-y = 1%
@@ -64,7 +73,11 @@ modules-center =
 modules-right = pulseaudio memory cpu wlan battery date github
 
 tray-position = right
+{{- if and (index . "dpi") (eq .dpi 220) }}
+tray-maxsize = 32
+{{- else }}
 tray-maxsize = 16
+{{- end }}
 
 
 ;wm-restack = bspwm
