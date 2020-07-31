@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-chromium --app="https://www.notion.so"
+firefox --ssb "https://www.notion.so"

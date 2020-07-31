@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-chromium --app="https://web.whatsapp.com"
+firefox --ssb "https://web.whatsapp.com"
