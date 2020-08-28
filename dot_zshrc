@@ -37,3 +37,4 @@ source ~/private.sh
 
 source $ZSH/oh-my-zsh.sh
 source /home/albert/.config/broot/launcher/bash/br
+. $HOME/.asdf/asdf.sh

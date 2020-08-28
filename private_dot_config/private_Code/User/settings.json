@@ -34,14 +34,14 @@
     // "editor.snippetSuggestions": "top",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.organizeImports": true,
+      "source.organizeImports": true
     }
   },
   "gopls": {
     "usePlaceholders": true, // add parameter placeholders when completing a function
     // Experimental settings
     "completeUnimported": true, // autocomplete unimported packages
-    "deepCompletion": true,     // enable deep completion
+    "deepCompletion": true      // enable deep completion
   },
   "gitlens.currentLine.enabled": false,
   "gitlens.codeLens.authors.enabled": false,
@@ -88,5 +88,5 @@
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
   },
-  "window.title": "${rootName}${dirty}",
+  "window.title": "${rootName}${dirty}"
 }
