@@ -12,7 +12,7 @@ elif cat /proc/acpi/button/lid/LID0/state | grep "closed"; then
   xrandr --output "{{ .internal_screen }}" --off --output "{{ .external_screen }}" --auto
 else
   xrandr \
-    --output {{ .external_screen }} --primary --mode {{ .external_screen_w }}"x"{{ .external_screen_h }}" --pos "{{ .internal_screen_w }}"x0 \
+    --output {{ .external_screen }} --primary --mode "{{ .external_screen_w }}"x"{{ .external_screen_h }}" --pos "{{ .internal_screen_w }}"x0 \
     --output {{ .internal_screen }} --mode "{{ .internal_screen_w }}"x"{{ .internal_screen_h }}" --pos 0x0
 fi
 

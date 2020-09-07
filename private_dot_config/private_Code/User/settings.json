@@ -88,5 +88,6 @@
   "[terraform]": {
     "editor.defaultFormatter": "hashicorp.terraform"
   },
-  "window.title": "${rootName}${dirty}"
+  "window.title": "${rootName}${dirty}",
+  "go.goroot": "/home/albert/.asdf/installs/golang/1.15/go"
 }

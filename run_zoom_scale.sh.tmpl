@@ -1,7 +1,12 @@
 #!/bin/sh
-{{- if and (index . "dpi") (eq .dpi 220) }}
+{{- if (index . "dpi") }}
+{{- if (eq .dpi 220) }}
 perl -i -pe 's/scaleFactor=1/scaleFactor=2/' ~/.config/zoomus.conf
 perl -i -pe 's/scaleFactor=2/scaleFactor=2/' ~/.config/zoomus.conf
+{{- else }}
+perl -i -pe 's/scaleFactor=1/scaleFactor=1/' ~/.config/zoomus.conf
+perl -i -pe 's/scaleFactor=2/scaleFactor=1/' ~/.config/zoomus.conf
+{{- end }}
 {{- else }}
 perl -i -pe 's/scaleFactor=1/scaleFactor=1/' ~/.config/zoomus.conf
 perl -i -pe 's/scaleFactor=2/scaleFactor=1/' ~/.config/zoomus.conf

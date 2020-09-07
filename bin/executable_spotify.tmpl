@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
-{{- if and (index . "dpi") (eq .dpi 220) }}
+{{- if (index . "dpi") }}
+{{- if (eq .dpi 220) }}
 /usr/bin/spotify --force-device-scale-factor=2
+{{- else }}
+/usr/bin/spotify
+{{- end }}
 {{- else }}
 /usr/bin/spotify
 {{- end }}

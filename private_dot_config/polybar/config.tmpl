@@ -35,8 +35,12 @@ monitor = {{ .external_screen }}
 dpi = {{ .dpi }}
 {{- end }}
 width = 100%
-{{- if and (index . "dpi") (eq .dpi 220) }}
+{{- if (index . "dpi") }}
+{{- if (eq .dpi 220) }}
 height = 64
+{{- else }}
+height = 32
+{{- end }}
 {{- else }}
 height = 32
 {{- end }}
@@ -73,8 +77,12 @@ modules-center =
 modules-right = pulseaudio memory cpu wlan battery date github
 
 tray-position = right
-{{- if and (index . "dpi") (eq .dpi 220) }}
+{{- if (index . "dpi") }}
+{{- if (eq .dpi 220) }}
 tray-maxsize = 32
+{{- else }}
+tray-maxsize = 16
+{{- end }}
 {{- else }}
 tray-maxsize = 16
 {{- end }}
