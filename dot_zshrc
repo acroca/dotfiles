@@ -1,17 +1,24 @@
-export ZSH=~/.oh-my-zsh
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/doc/fzf/examples/key-bindings.zsh
+source /usr/share/doc/fzf/examples/completion.zsh
+source /usr/share/zsh/vendor-completions/_docker
+source /usr/share/zsh/vendor-completions/_docker-compose
+source ~/.zsh/git.sh
+source ~/.zsh/history.sh
+source ~/.zsh/completion.sh
+source ~/.zsh/aliases.sh
+source ~/.zsh/bindings.sh
+source ~/.zsh/dependencies.sh
 
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="spaceship"
+source ~/private.sh
 
-CASE_SENSITIVE="true"
-
-plugins=(git docker docker-compose golang)
+source /home/albert/.config/broot/launcher/bash/br
+. $HOME/.asdf/asdf.sh
 
 export EDITOR="code --wait"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-export ERL_AFLAGS="-kernel shell_history enabled"
-export TERM="xterm-color" # To make termite happy in remote hosts
 
 export PATH=$PATH:/usr/local/opt/coreutils/libexec/gnubin
 export PATH="$HOME/f3/go/bin:$PATH"
@@ -25,16 +32,4 @@ export PATH="./env/bin:$PATH"
 export PATH="/usr/local/Cellar/libpq/11.1/bin/:$PATH"
 export PATH="$PATH:/usr/lib/jvm/jdk1.8.0_212/bin"
 
-alias sync_drive="rsync -avh --ignore-existing"
-alias e="code --wait"
-alias tfswitch="/usr/local/bin/tfswitch -b /home/albert/bin/terraform"
-
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
-
-source ~/private.sh
-
-source $ZSH/oh-my-zsh.sh
-source /home/albert/.config/broot/launcher/bash/br
-. $HOME/.asdf/asdf.sh
+PS1='%{$fg[magenta]%}%~%u$(git_info)$(f3exp) %(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
