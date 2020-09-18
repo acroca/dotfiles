@@ -29,4 +29,5 @@ export PATH="./env/bin:$PATH"
 export PATH="/usr/local/Cellar/libpq/11.1/bin/:$PATH"
 export PATH="$PATH:/usr/lib/jvm/jdk1.8.0_212/bin"
 
-PS1='%{$fg[magenta]%}%~%u$(git_info)$(f3exp) %(?.%{$fg[blue]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
+PS1='%{$fg[blue]%}%~%u$(git_info)$(f3exp)
+%(?.%{$fg[green]%}.%{$fg[red]%})%(!.#.⇢)%{$reset_color%} '
