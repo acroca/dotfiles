@@ -53,7 +53,7 @@
   },
   "editor.snippetSuggestions": "top",
   "editor.tabCompletion": "onlySnippets",
-  "window.zoomLevel": 0,
+  "window.zoomLevel": -1,
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
