@@ -12,8 +12,10 @@ source ~/.zsh/bindings.sh
 
 source ~/private.sh
 
+{{- if eq .email "albert.callarisa@form3.tech" }}
 source /home/albert/.config/broot/launcher/bash/br
 . $HOME/.asdf/asdf.sh
+{{- end }}
 
 export EDITOR="code --wait"
 export LC_ALL=en_US.UTF-8
@@ -31,5 +33,10 @@ export PATH="./env/bin:$PATH"
 export PATH="/usr/local/Cellar/libpq/11.1/bin/:$PATH"
 export PATH="$PATH:/usr/lib/jvm/jdk1.8.0_212/bin"
 
+{{- if eq .email "albert.callarisa@form3.tech" }}
 PS1='%{$fg[blue]%}%~%u$(git_info)%{$reset_color%}$(f3exp)
 %(?.%{$fg[green]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
+{{- else }}
+PS1='%{$fg[blue]%}%~%u$(git_info)%{$reset_color%}
+%(?.%{$fg[green]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
+{{- end }}

@@ -136,7 +136,11 @@ font:
     #style: Bold Italic
 
   # Point size
+{{- if eq .email "albert.callarisa@form3.tech" }}
   size: 8.0
+{{- else }}
+  size: 9.0
+{{- end }}
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
