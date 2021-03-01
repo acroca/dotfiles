@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-firefox --ssb "https://web.whatsapp.com"
+~/nativefier/whatsApp-linux-x64/whatsapp

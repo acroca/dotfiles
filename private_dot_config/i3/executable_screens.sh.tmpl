@@ -3,11 +3,7 @@
 {{- if (index . "external_screen") }}
 
 if xrandr | grep "{{ .external_screen }} disconnected"; then
-  {{- if (index . "dpi") }}
-  xrandr --output "{{ .external_screen }}" --off --output "{{ .internal_screen }}" --auto
-  {{- else }}
   xrandr --output "{{ .external_screen }}" --off --output "{{ .internal_screen }}" --auto --mode "{{ .internal_screen_w }}"x"{{ .internal_screen_h }}"
-  {{- end }}
 elif cat /proc/acpi/button/lid/LID0/state | grep "closed"; then
   xrandr --output "{{ .internal_screen }}" --off --output "{{ .external_screen }}" --auto
 else

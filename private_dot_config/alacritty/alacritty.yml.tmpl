@@ -575,6 +575,9 @@ colors:
   #- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
 key_bindings:
   - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
+  - { key: C,      mods: Control,       action: Copy             }
+  - { key: V,      mods: Control,       action: Paste            }
+  - { key: C,      mods: Control|Shift, chars: "\x03"            }
 #debug:
   # Display the time it takes to redraw each frame.
   #render_timer: false
