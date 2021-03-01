@@ -180,8 +180,8 @@ bindsym XF86AudioStop exec --no-startup-id "playerctl stop"
 bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
 bindsym XF86AudioNext exec --no-startup-id "playerctl next"
 
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec --no-startup-id ~/.config/i3/brightness.sh + eDP-1-1
+bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/brightness.sh - eDP-1-1
 
 for_window [class="zoom" instance="zoom"] floating enable
 for_window [class="Alacritty"] border pixel 1
