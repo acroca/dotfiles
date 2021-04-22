@@ -1,0 +1,9 @@
+#!/bin/bash
+
+xrandr --delmonitor {{ .external_screen }}-1
+xrandr --delmonitor {{ .external_screen }}-2
+xrandr --setmonitor {{ .external_screen }}-1 {{ mul (div .external_screen_w 10) 4 }}/328x1440/346+0+0  {{ .external_screen }}
+xrandr --setmonitor {{ .external_screen }}-2 {{ mul (div .external_screen_w 10) 6 }}/492x1440/346+{{ mul (div .external_screen_w 10) 4 }}+0 none
+xrandr --fb {{ add .external_screen_w 1 }}x{{ .external_screen_h }}
+xrandr --fb {{ .external_screen_w }}x{{ .external_screen_h }}
+xrandr --auto --output {{ .internal_screen }} --off

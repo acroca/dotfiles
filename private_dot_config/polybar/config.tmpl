@@ -29,7 +29,8 @@ alert = #bd2c40
 
 [bar/example]
 {{- if (index . "external_screen") }}
-monitor = {{ .internal_screen }}
+monitor = {{ .external_screen }}-1
+monitor-fallback = {{ .external_screen }}
 {{- end }}
 {{- if (index . "dpi") }}
 dpi = {{ .dpi }}

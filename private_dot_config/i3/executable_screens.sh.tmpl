@@ -5,6 +5,10 @@
 if xrandr | grep "{{ .external_screen }} disconnected"; then
   xrandr --output "{{ .external_screen }}" --off --output "{{ .internal_screen }}" --auto --mode "{{ .internal_screen_w }}"x"{{ .internal_screen_h }}"
 elif cat /proc/acpi/button/lid/LID0/state | grep "closed"; then
+  xrandr --delmonitor {{ .external_screen }}-1 || true
+  xrandr --delmonitor {{ .external_screen }}-2 || true
+  xrandr --fb {{ add .external_screen_w 1 }}x{{ .external_screen_h }}
+  xrandr --fb {{ .external_screen_w }}x{{ .external_screen_h }}
   xrandr --output "{{ .internal_screen }}" --off --output "{{ .external_screen }}" --auto
 else
   xrandr \

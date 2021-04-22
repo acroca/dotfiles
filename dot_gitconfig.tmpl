@@ -24,6 +24,7 @@
   ci= commit
   co= checkout
   l=log --graph --pretty=format:'%Cgreen%h%Cblue%d%Creset %s %Cred%an%Creset'
+  hub = "!f(){ open `git remote -v | awk '/fetch/{print $2}' | sed -Ee 's#(git@|git://)#http://#' -e 's@com:@com/@'`| head     -n1; }; f"
 
 [push]
 	default = current
