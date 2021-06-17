@@ -146,31 +146,6 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-# resize window (you can also use the mouse for that)
-mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
-
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-
-        # back to normal: Enter or Escape or $mod+r
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-        bindsym $mod+r mode "default"
-}
-
 bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/volume-up #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/volume-down #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id ~/bin/volume-mute # mute sound
@@ -187,15 +162,6 @@ for_window [class="zoom" instance="zoom"] floating enable
 for_window [class="Alacritty"] border pixel 1
 for_window [class="Firefox"] border pixel 1
 
-
-bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-#bar {
-#        status_command i3status
-#}
-
 bindsym $mod+Print exec --no-startup-id maim -s ~/Desktop/$(date +%s).png
 bindsym $mod+m exec --no-startup-id ~/.config/i3/screens.sh
 bindsym $mod+Shift+m exec --no-startup-id ~/.config/i3/wide-split.sh
@@ -208,14 +174,19 @@ exec --no-startup-id xset +fp /home/albert/.local/share/fonts
 exec --no-startup-id xset fp rehash
 exec_always --no-startup-id xset -dpms r rate 185 50 s off
 exec_always --no-startup-id setxkbmap -option compose:ralt -option caps:ctrl_modifier
-exec_always --no-startup-id xcompmgr
-exec_always --no-startup-id ~/.config/i3/screens.sh
-exec --no-startup-id nm-applet
+exec_always --no-startup-id ~/bin/picom
+exec --no-startup-id ~/.config/i3/screens.sh
 exec --no-startup-id ~/bin/noise-cancel
+exec --no-startup-id nm-applet
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # Make the currently focused window a scratchpad
 bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+plus sticky toggle
 
 # Show the first scratchpad window
 bindsym $mod+grave scratchpad show
+
+# lastsharerect=230,529,1537,869
+bindsym $mod+o floating enable; move position 230px 529px; resize set 1537 869
+bindsym $mod+p floating enable; move position 1777px 0px; resize set 1661 1405

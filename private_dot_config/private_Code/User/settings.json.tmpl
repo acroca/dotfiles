@@ -52,11 +52,6 @@
   },
   "editor.snippetSuggestions": "top",
   "editor.tabCompletion": "onlySnippets",
-{{- if eq .email "albert.callarisa@form3.tech" }}
-  "window.zoomLevel": -1,
-{{- else }}
-  "window.zoomLevel": 0,
-{{- end }}
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
@@ -95,4 +90,16 @@
   // "workbench.editor.tabSizing": "shrink",
   "explorer.decorations.colors": true,
   "explorer.decorations.badges": true,
+  "redhat.telemetry.enabled": false,
+  "window.zoomLevel": -1,
+  "terraform.languageServer": {
+    "external": true,
+    "args": [
+      "serve",
+      "-tf-exec=/home/albert/bin/terraform"
+    ],
+    "maxNumberOfProblems": 100,
+    "trace.server": "off"
+  },
+  "editor.codeLens": false
 }

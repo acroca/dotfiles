@@ -3,17 +3,21 @@
     "key": "shift+cmd+j",
     "command": "workbench.action.terminal.focus",
     "when": "!terminalFocus"
-  },{
+  },
+  {
     "key": "shift+cmd+]",
     "command": "workbench.action.nextEditor"
-  },{
+  },
+  {
     "key": "shift+cmd+[",
     "command": "workbench.action.previousEditor"
-  },{
+  },
+  {
     "key": "cmd+d",
     "command": "editor.action.addSelectionToNextFindMatch",
     "when": "editorFocus"
-  },{
+  },
+  {
     "key": "cmd+e",
     "command": "editor.action.addSelectionToPreviousFindMatch",
     "when": "editorFocus"
@@ -22,5 +26,25 @@
     "key": "ctrl+shift+d",
     "command": "editor.action.smartSelect.expand",
     "when": "editorTextFocus"
-  }
+  },
+  {
+    "key": "ctrl+up",
+    "command": "cursorMove",
+    "args": {
+      "to": "up",
+      "by": "line",
+      "value": 10
+    },
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+down",
+    "command": "cursorMove",
+    "args": {
+      "to": "down",
+      "by": "line",
+      "value": 10
+    },
+    "when": "editorTextFocus"
+  },
 ]

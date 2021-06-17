@@ -12,3 +12,4 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 alias l='ls -lah'
 alias k='kubectl'
 alias tfswitch="/usr/local/bin/tfswitch -b /home/albert/bin/terraform"
+alias copy_ip="curl -s ipinfo.io/ip | xclip -selection clipboard"

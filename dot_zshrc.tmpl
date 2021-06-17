@@ -1,3 +1,4 @@
+fpath+=$HOME/.zsh/pure
 FZF_CTRL_R_OPTS=--reverse
 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
@@ -37,8 +38,9 @@ export PATH="/usr/local/Cellar/libpq/11.1/bin/:$PATH"
 export PATH="$PATH:/usr/lib/jvm/jdk1.8.0_212/bin"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
-alias f3_session_restore='eval $(bash ~/.f3/session)'
-f3_session_restore
-
-PS1='%{$fg[blue]%}%~%u$(git_info)$(f3session)
-%(?.%{$fg[green]%}.%{$fg[red]%})%(!.#.❯)%{$reset_color%} '
+# Pure https://github.com/sindresorhus/pure
+export PURE_CMD_MAX_EXEC_TIME="1"
+export PURE_GIT_PULL=0
+autoload -U promptinit; promptinit
+prompt pure
+PROMPT='$(f3session)'$PROMPT
