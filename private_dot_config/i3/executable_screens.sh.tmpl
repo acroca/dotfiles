@@ -7,7 +7,4 @@ if xrandr | grep "{{ .external_screen }} disconnected"; then
 else
   xrandr --output {{ .external_screen }} --primary --mode {{ .external_screen_w }}x{{ .external_screen_h }} --output {{ .internal_screen }} --off
 fi
-
-{{- else }}
-  xrandr --auto
 {{- end }}
