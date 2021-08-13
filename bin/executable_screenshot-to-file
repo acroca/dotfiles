@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+maim -s ~/Desktop/$(date +%s).png
