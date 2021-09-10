@@ -1,16 +1,16 @@
 fpath+=$HOME/.zsh/pure
 FZF_CTRL_R_OPTS=--reverse
 
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-source /usr/share/zsh/vendor-completions/_docker
-source /usr/share/zsh/vendor-completions/_docker-compose
+source /usr/local/opt/fzf/shell/key-bindings.zsh
+source /usr/local/opt/fzf/shell/completion.zsh
+# TODO: Add this back
+# source /usr/share/zsh/vendor-completions/_docker
+# source /usr/share/zsh/vendor-completions/_docker-compose
 source ~/.zsh/git.sh
 source ~/.zsh/history.sh
 source ~/.zsh/completion.sh
 source ~/.zsh/aliases.sh
 source ~/.zsh/bindings.sh
-source ~/.zsh/form3.sh
 
 source ~/private.sh
 
@@ -43,4 +43,3 @@ export PURE_CMD_MAX_EXEC_TIME="1"
 export PURE_GIT_PULL=0
 autoload -U promptinit; promptinit
 prompt pure
-PROMPT='$(f3session)'$PROMPT
