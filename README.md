@@ -4,5 +4,6 @@ Here is my dotfiles.
 
 # Preparing a new computer
 
-- Install [chezmoi](https://github.com/twpayne/chezmoi)
+- Install [brew](https://brew.sh/)
+- `brew install chezmoi`
 - `chezmoi init https://github.com/acroca/dotfiles.git`
