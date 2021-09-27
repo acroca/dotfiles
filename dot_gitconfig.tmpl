@@ -7,12 +7,11 @@
 [user]
   name = Albert Callarisa
   email = {{ .email }}
-{{- if eq .email "albert.callarisa@form3.tech" }}
-  signingkey = 0C2A3B81B0A8034E
+{{- if eq .email "albert.callarisa@lingokids.com" }}
+  signingkey = 1A5BE178DA649AC7
 {{- end }}
 
-
-{{- if eq .email "albert.callarisa@form3.tech" }}
+{{- if eq .email "albert.callarisa@lingokids.com" }}
 [commit]
 	gpgsign = true
 {{- end }}
@@ -25,6 +24,9 @@
   co= checkout
   l=log --graph --pretty=format:'%Cgreen%h%Cblue%d%Creset %s %Cred%an%Creset'
   hub = "!f(){ open `git remote -v | awk '/fetch/{print $2}' | sed -Ee 's#(git@|git://)#http://#' -e 's@com:@com/@'`| head     -n1; }; f"
+
+[pull]
+  rebase = false
 
 [push]
 	default = current

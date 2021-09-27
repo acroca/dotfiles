@@ -15,21 +15,27 @@ local push = function(x, y, w, h)
   end
 end
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "left", push(0, 0, 0.5, 1))
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "up", push(0, 0, 1, 0.5))
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "right", push(0.5, 0, 0.5, 1))
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "down", push(0, 0.5, 1, 0.5))
+hs.hotkey.bind({"alt", "ctrl"}, "left", push(0, 0, 0.5, 1))
+hs.hotkey.bind({"alt", "ctrl"}, "up", push(0, 0, 1, 0.5))
+hs.hotkey.bind({"alt", "ctrl"}, "right", push(0.5, 0, 0.5, 1))
+hs.hotkey.bind({"alt", "ctrl"}, "down", push(0, 0.5, 1, 0.5))
 
--- Shift to use corners, weird but I like it
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "left", push(0, 0, 0.5, 0.5))
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "up", push(0.5, 0, 0.5, 0.5))
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "right", push(0.5, 0.5, 0.5, 0.5))
-hs.hotkey.bind({"cmd", "alt", "ctrl", "shift"}, "down", push(0, 0.5, 0.5, 0.5))
+hs.hotkey.bind({"alt", "ctrl"}, "u", push(0, 0, 0.5, 0.5))
+hs.hotkey.bind({"alt", "ctrl"}, "i", push(0.5, 0, 0.5, 0.5))
+hs.hotkey.bind({"alt", "ctrl"}, "k", push(0.5, 0.5, 0.5, 0.5))
+hs.hotkey.bind({"alt", "ctrl"}, "j", push(0, 0.5, 0.5, 0.5))
 
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "m", push(0, 0, 1, 1))
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "n", push(0.1, 0.1, 0.8, 0.8))
+hs.hotkey.bind({"alt", "ctrl"}, "m", push(0, 0, 1, 1))
+hs.hotkey.bind({"alt", "ctrl"}, "n", push(0.2, 0.1, 0.6, 0.8))
 
 
+hs.hotkey.bind({"cmd"}, "e", function()
+  if hs.application.frontmostApplication():title() == "Notion" then
+    hs.application.frontmostApplication():hide()
+  else
+    hs.application.launchOrFocus("Notion")
+  end
+end)
 hs.hotkey.bind({"cmd"}, "1", function()
   hs.application.launchOrFocus("Visual Studio Code")
 end)

@@ -14,11 +14,6 @@ source ~/.zsh/bindings.sh
 
 source ~/private.sh
 
-{{- if eq .email "albert.callarisa@form3.tech" }}
-source /home/albert/.config/broot/launcher/bash/br
-. $HOME/.asdf/asdf.sh
-{{- end }}
-
 export EDITOR="code --wait"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -43,3 +38,22 @@ export PURE_CMD_MAX_EXEC_TIME="1"
 export PURE_GIT_PULL=0
 autoload -U promptinit; promptinit
 prompt pure
+
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# asdf
+. /usr/local/opt/asdf/libexec/asdf.sh
+
+# libpq
+export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+
+{{- if eq .email "albert.callarisa@lingokids.com" }}
+# Lingokids AWS
+export AWS_PROFILE=sts
+alias login_aws='aws-google-auth -I $GOOGLE_IDP_ID -S $GOOGLE_SP_ID -d 32400 -k -u albert.callarisa@lingokids.com -R us-west-2 -r $AWS_ASSUME_ROLE'
+{{- end }}
