@@ -1,8 +1,8 @@
 [core]
-	excludesfile = ~/.gitignore
-	editor = code --wait
-	pager = less -F -X
-	hooksPath = /home/albert/.git-hooks
+  excludesfile = ~/.gitignore
+  editor = code --wait
+  pager = less -F -X
+  hooksPath = /home/albert/.git-hooks
 
 [user]
   name = Albert Callarisa
@@ -13,7 +13,7 @@
 
 {{- if eq .email "albert.callarisa@lingokids.com" }}
 [commit]
-	gpgsign = true
+  gpgsign = true
 {{- end }}
 
 [alias]
@@ -29,7 +29,7 @@
   rebase = false
 
 [push]
-	default = current
+  default = current
 
 [apply]
   whitespace = warn
@@ -41,17 +41,17 @@
   ui = always
 
 [filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
 [gc]
-	auto = 1
+  auto = 1
 
 [diff]
-    tool = default-difftool
+  tool = default-difftool
 
 [difftool "default-difftool"]
-    cmd = code --wait --diff $LOCAL $REMOTE
+  cmd = code --wait --diff $LOCAL $REMOTE
 
 [color "diff"]
   meta = yellow bold
@@ -74,9 +74,9 @@
   changed = green
   untracked = cyan
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  required = true
+  process = git-lfs filter-process
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+  insteadOf = https://github.com/

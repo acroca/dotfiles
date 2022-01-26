@@ -1,8 +1,7 @@
 hs.window.animationDuration = 0
 
-local push = function(x, y, w, h)
+local pushWindow = function(win, x, y, w, h)
   return function()
-    local win = hs.window.focusedWindow()
     local f = win:frame()
     local screen = win:screen()
     local max = screen:frame()
@@ -15,9 +14,43 @@ local push = function(x, y, w, h)
   end
 end
 
+local push = function(x, y, w, h)
+  return function()
+    local win = hs.window.focusedWindow()
+    pushWindow(win, x, y, w, h)()
+  end
+end
+
+local pushAll = function(app, x, y, w, h)
+  local windows = hs.application.get(app):allWindows()
+  for key, win in pairs(windows) do
+    print(win)
+    pushWindow(win, x,y,w,h)()
+  end
+end
+
+local myLayout1 = function()
+  pushAll("Code", 0, 0, 0.7, 1)
+  pushAll("Terminal", 0.7, 0, 0.3, 1)
+  pushAll("Firefox", 0, 0, 0.5, 1)
+  pushAll("Slack", 0.5, 0, 0.5, 1)
+  pushAll("Notion", 0.5, 0.1, 0.5, 0.8)
+end
+
+local myLayout2 = function()
+  pushAll("Code", 0, 0.4, 0.5, 0.6)
+  pushAll("Terminal", 0.5, 0, 0.5, 1)
+  pushAll("Firefox", 0, 0.4, 0.5, 0.6)
+  pushAll("Slack", 0.5, 0, 0.5, 1)
+  pushAll("Notion", 0.5, 0.1, 0.5, 0.8)
+  pushAll("Google Meet", 0, 0, 0.5, 0.4)
+end
+
 hs.hotkey.bind({"alt", "ctrl"}, "left", push(0, 0, 0.5, 1))
+hs.hotkey.bind({"alt", "ctrl", "cmd"}, "left", push(0, 0, 0.7, 1))
 hs.hotkey.bind({"alt", "ctrl"}, "up", push(0, 0, 1, 0.5))
 hs.hotkey.bind({"alt", "ctrl"}, "right", push(0.5, 0, 0.5, 1))
+hs.hotkey.bind({"alt", "ctrl", "cmd"}, "right", push(0.7, 0, 0.3, 1))
 hs.hotkey.bind({"alt", "ctrl"}, "down", push(0, 0.5, 1, 0.5))
 
 hs.hotkey.bind({"alt", "ctrl"}, "u", push(0, 0, 0.5, 0.5))
@@ -25,8 +58,17 @@ hs.hotkey.bind({"alt", "ctrl"}, "i", push(0.5, 0, 0.5, 0.5))
 hs.hotkey.bind({"alt", "ctrl"}, "k", push(0.5, 0.5, 0.5, 0.5))
 hs.hotkey.bind({"alt", "ctrl"}, "j", push(0, 0.5, 0.5, 0.5))
 
+hs.hotkey.bind({"alt", "ctrl", "cmd"}, "m", myLayout1)
+hs.hotkey.bind({"alt", "ctrl", "cmd"}, "n", myLayout2)
+
+-- Fullscreen
 hs.hotkey.bind({"alt", "ctrl"}, "m", push(0, 0, 1, 1))
+-- Center of the screen with border both ways
 hs.hotkey.bind({"alt", "ctrl"}, "n", push(0.2, 0.1, 0.6, 0.8))
+-- Center of the screen, full height
+hs.hotkey.bind({"alt", "ctrl", "shift"}, "n", push(0.2, 0, 0.6, 1))
+-- Bottom left corner, good size for sized-screenshare (in the external screen)
+hs.hotkey.bind({"alt", "ctrl"}, "p", push(0, 0.3, 0.5, 0.7))
 
 
 hs.hotkey.bind({"cmd"}, "e", function()
@@ -52,4 +94,3 @@ hs.hotkey.bind({"cmd"}, "4", function()
     hs.application.launchOrFocus("Slack")
   end
 end)
-
