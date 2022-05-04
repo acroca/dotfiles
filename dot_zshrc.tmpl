@@ -58,5 +58,5 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 {{- if eq .email "albert.callarisa@lingokids.com" }}
 # Lingokids AWS
 export AWS_PROFILE=sts
-alias login_aws='aws-google-auth -I $GOOGLE_IDP_ID -S $GOOGLE_SP_ID -d 32400 -k -u albert.callarisa@lingokids.com -R us-west-2 -r $AWS_ASSUME_ROLE'
+alias login_aws='gsts --idp-id $GOOGLE_IDP_ID --sp-id $GOOGLE_SP_ID --username albert.callarisa@lingokids.com --aws-role-arn $AWS_ASSUME_ROLE --aws-session-duration=32400'
 {{- end }}

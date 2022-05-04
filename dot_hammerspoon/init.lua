@@ -1,5 +1,9 @@
 hs.window.animationDuration = 0
 
+local ends_with = function(str, ending)
+  return ending == "" or str:sub(-#ending) == ending
+end
+
 local pushWindow = function(win, x, y, w, h)
   return function()
     local f = win:frame()
@@ -24,26 +28,49 @@ end
 local pushAll = function(app, x, y, w, h)
   local windows = hs.application.get(app):allWindows()
   for key, win in pairs(windows) do
-    print(win)
     pushWindow(win, x,y,w,h)()
   end
 end
 
-local myLayout1 = function()
-  pushAll("Code", 0, 0, 0.7, 1)
-  pushAll("Terminal", 0.7, 0, 0.3, 1)
-  pushAll("Firefox", 0, 0, 0.5, 1)
-  pushAll("Slack", 0.5, 0, 0.5, 1)
-  pushAll("Notion", 0.5, 0.1, 0.5, 0.8)
+local normalLayout = function()
+  if hs.screen.mainScreen():currentMode()["w"] < 2000 then
+    -- Laptop screen
+    pushAll("Code", 0, 0, 1, 1)
+    pushAll("Terminal", 0, 0, 1, 1)
+    pushAll("Firefox", 0, 0, 1, 1)
+    pushAll("Slack", 0, 0, 1, 1)
+    pushAll("WhatsApp", 0, 0, 1, 1)
+    pushAll("Notion", 0, 0, 1, 1)
+  else
+    -- Wide screen
+    pushAll("Code", 0, 0, 0.7, 1)
+    pushAll("Terminal", 0.7, 0, 0.3, 1)
+    pushAll("Firefox", 0, 0, 0.5, 1)
+    pushAll("Slack", 0.5, 0, 0.5, 1)
+    pushAll("WhatsApp", 0.5, 0, 0.5, 1)
+    pushAll("Notion", 0.5, 0.1, 0.5, 0.8)
+  end
 end
 
-local myLayout2 = function()
-  pushAll("Code", 0, 0.4, 0.5, 0.6)
-  pushAll("Terminal", 0.5, 0, 0.5, 1)
-  pushAll("Firefox", 0, 0.4, 0.5, 0.6)
-  pushAll("Slack", 0.5, 0, 0.5, 1)
-  pushAll("Notion", 0.5, 0.1, 0.5, 0.8)
-  pushAll("Google Meet", 0, 0, 0.5, 0.4)
+local callLayout = function()
+  if hs.screen.mainScreen():currentMode()["w"] < 2000 then
+    pushAll("Google Meet", 0, 0, 1, 0.4)
+    pushAll("Code", 0, 0.4, 1, 0.6)
+    pushAll("Terminal", 0, 0.4, 1, 0.6)
+    pushAll("Firefox", 0, 0.4, 1, 0.6)
+    pushAll("Slack", 0, 0.4, 1, 0.6)
+    pushAll("WhatsApp", 0, 0.4, 1, 0.6)
+    pushAll("Notion", 0, 0.4, 1, 0.6)
+  else
+    -- Wide screen
+    pushAll("Google Meet", 0, 0, 0.5, 0.4)
+    pushAll("Code", 0, 0.4, 0.5, 0.6)
+    pushAll("Terminal", 0.5, 0, 0.5, 1)
+    pushAll("Firefox", 0, 0.4, 0.5, 0.6)
+    pushAll("Slack", 0.5, 0, 0.5, 1)
+    pushAll("WhatsApp", 0.5, 0, 0.5, 1)
+    pushAll("Notion", 0.5, 0.1, 0.5, 0.8)
+  end
 end
 
 hs.hotkey.bind({"alt", "ctrl"}, "left", push(0, 0, 0.5, 1))
@@ -58,8 +85,8 @@ hs.hotkey.bind({"alt", "ctrl"}, "i", push(0.5, 0, 0.5, 0.5))
 hs.hotkey.bind({"alt", "ctrl"}, "k", push(0.5, 0.5, 0.5, 0.5))
 hs.hotkey.bind({"alt", "ctrl"}, "j", push(0, 0.5, 0.5, 0.5))
 
-hs.hotkey.bind({"alt", "ctrl", "cmd"}, "m", myLayout1)
-hs.hotkey.bind({"alt", "ctrl", "cmd"}, "n", myLayout2)
+hs.hotkey.bind({"alt", "ctrl", "cmd"}, "m", normalLayout)
+hs.hotkey.bind({"alt", "ctrl", "cmd"}, "n", callLayout)
 
 -- Fullscreen
 hs.hotkey.bind({"alt", "ctrl"}, "m", push(0, 0, 1, 1))
