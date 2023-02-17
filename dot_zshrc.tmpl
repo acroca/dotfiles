@@ -60,3 +60,5 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 export AWS_PROFILE=sts
 alias login_aws='gsts --idp-id $GOOGLE_IDP_ID --sp-id $GOOGLE_SP_ID --username albert.callarisa@lingokids.com --aws-role-arn $AWS_ASSUME_ROLE --aws-session-duration=32400'
 {{- end }}
+
+source /Users/albert/.docker/init-zsh.sh || true # Added by Docker Desktop

@@ -12,3 +12,6 @@ bindkey -M emacs "${terminfo[kcud1]}" down-line-or-beginning-search
 
 bindkey '^[[A' history-search-backward
 bindkey '^[[B' history-search-forward
+
+autoload -U select-word-style
+select-word-style bash

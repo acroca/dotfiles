@@ -40,15 +40,15 @@ local normalLayout = function()
     pushAll("Firefox", 0, 0, 1, 1)
     pushAll("Slack", 0, 0, 1, 1)
     pushAll("WhatsApp", 0, 0, 1, 1)
-    pushAll("Notion", 0, 0, 1, 1)
+    pushAll("Logseq", 0, 0, 1, 1)
   else
     -- Wide screen
-    pushAll("Code", 0, 0, 0.7, 1)
-    pushAll("Terminal", 0.7, 0, 0.3, 1)
-    pushAll("Firefox", 0, 0, 0.5, 1)
-    pushAll("Slack", 0.5, 0, 0.5, 1)
-    pushAll("WhatsApp", 0.5, 0, 0.5, 1)
-    pushAll("Notion", 0.5, 0.1, 0.5, 0.8)
+    pushAll("Code", 0.3, 0, 0.7, 1)
+    pushAll("Terminal", 0, 0, 0.3, 1)
+    pushAll("Firefox", 0.5, 0, 0.5, 1)
+    pushAll("Slack", 0, 0, 0.5, 1)
+    pushAll("WhatsApp", 0, 0, 0.5, 1)
+    pushAll("Logseq", 0, 0.1, 0.5, 0.8)
   end
 end
 
@@ -60,16 +60,16 @@ local callLayout = function()
     pushAll("Firefox", 0, 0.4, 1, 0.6)
     pushAll("Slack", 0, 0.4, 1, 0.6)
     pushAll("WhatsApp", 0, 0.4, 1, 0.6)
-    pushAll("Notion", 0, 0.4, 1, 0.6)
+    pushAll("Logseq", 0, 0.4, 1, 0.6)
   else
     -- Wide screen
-    pushAll("Google Meet", 0, 0, 0.5, 0.4)
-    pushAll("Code", 0, 0.4, 0.5, 0.6)
-    pushAll("Terminal", 0.5, 0, 0.5, 1)
-    pushAll("Firefox", 0, 0.4, 0.5, 0.6)
-    pushAll("Slack", 0.5, 0, 0.5, 1)
-    pushAll("WhatsApp", 0.5, 0, 0.5, 1)
-    pushAll("Notion", 0.5, 0.1, 0.5, 0.8)
+    pushAll("Google Meet", 0.5, 0, 0.5, 0.4)
+    pushAll("Code", 0.5, 0.4, 0.5, 0.6)
+    pushAll("Terminal", 0, 0, 0.5, 1)
+    pushAll("Firefox", 0.5, 0.4, 0.5, 0.6)
+    pushAll("Slack", 0, 0, 0.5, 1)
+    pushAll("WhatsApp", 0, 0, 0.5, 1)
+    pushAll("Logseq", 0, 0.1, 0.5, 0.8)
   end
 end
 
@@ -99,10 +99,10 @@ hs.hotkey.bind({"alt", "ctrl"}, "p", push(0, 0.3, 0.5, 0.7))
 
 
 hs.hotkey.bind({"cmd"}, "e", function()
-  if hs.application.frontmostApplication():title() == "Notion" then
+  if hs.application.frontmostApplication():title() == "Logseq" then
     hs.application.frontmostApplication():hide()
   else
-    hs.application.launchOrFocus("Notion")
+    hs.application.launchOrFocus("Logseq")
   end
 end)
 hs.hotkey.bind({"cmd"}, "1", function()
