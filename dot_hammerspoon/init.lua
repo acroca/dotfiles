@@ -39,7 +39,7 @@ local normalLayout = function()
     pushAll("Terminal", 0, 0, 1, 1)
     pushAll("Brave", 0, 0, 1, 1)
     pushAll("Slack", 0, 0, 1, 1)
-    pushAll("WhatsApp", 0, 0, 1, 1)
+    -- pushAll("WhatsApp", 0, 0, 1, 1)
     pushAll("Logseq", 0, 0, 1, 1)
   else
     -- Wide screen
@@ -47,7 +47,7 @@ local normalLayout = function()
     pushAll("Terminal", 0, 0, 0.3, 1)
     pushAll("Brave", 0.5, 0, 0.5, 1)
     pushAll("Slack", 0, 0, 0.5, 1)
-    pushAll("WhatsApp", 0, 0, 0.5, 1)
+    -- pushAll("WhatsApp", 0, 0, 0.5, 1)
     pushAll("Logseq", 0, 0.1, 0.5, 0.8)
   end
 end
@@ -59,7 +59,7 @@ local callLayout = function()
     pushAll("Terminal", 0, 0.4, 1, 0.6)
     pushAll("Brave", 0, 0.4, 1, 0.6)
     pushAll("Slack", 0, 0.4, 1, 0.6)
-    pushAll("WhatsApp", 0, 0.4, 1, 0.6)
+    -- pushAll("WhatsApp", 0, 0.4, 1, 0.6)
     pushAll("Logseq", 0, 0.4, 1, 0.6)
   else
     -- Wide screen
@@ -68,7 +68,7 @@ local callLayout = function()
     pushAll("Terminal", 0, 0, 0.5, 1)
     pushAll("Brave", 0.5, 0.4, 0.5, 0.6)
     pushAll("Slack", 0, 0, 0.5, 1)
-    pushAll("WhatsApp", 0, 0, 0.5, 1)
+    -- pushAll("WhatsApp", 0, 0, 0.5, 1)
     pushAll("Logseq", 0, 0.1, 0.5, 0.8)
   end
 end
@@ -115,9 +115,9 @@ hs.hotkey.bind({"cmd"}, "3", function()
   hs.application.launchOrFocus("Brave")
 end)
 hs.hotkey.bind({"cmd"}, "4", function()
-  if hs.application.frontmostApplication():title() == "Slack" then
-    hs.application.launchOrFocus("WhatsApp")
-  else
+  -- if hs.application.frontmostApplication():title() == "Slack" then
+    -- hs.application.launchOrFocus("WhatsApp")
+  -- else
     hs.application.launchOrFocus("Slack")
-  end
+  -- end
 end)
