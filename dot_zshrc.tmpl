@@ -1,11 +1,8 @@
-fpath+=$HOME/.zsh/pure
+fpath+=($HOME/.zsh/pure)
 FZF_CTRL_R_OPTS=--reverse
 
-source /usr/local/opt/fzf/shell/key-bindings.zsh
-source /usr/local/opt/fzf/shell/completion.zsh
-# TODO: Add this back
-# source /usr/share/zsh/vendor-completions/_docker
-# source /usr/share/zsh/vendor-completions/_docker-compose
+source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
+source /opt/homebrew/opt/fzf/shell/completion.zsh
 source ~/.zsh/git.sh
 source ~/.zsh/history.sh
 source ~/.zsh/completion.sh
@@ -18,47 +15,16 @@ export EDITOR="code --wait"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-export PATH=$PATH:/usr/local/opt/coreutils/libexec/gnubin
-export PATH="$HOME/f3/go/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.rvm/bin:$PATH"
-export PATH="$HOME/.mix/escripts:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-export PATH="$HOME/.asdf/installs/golang/1.15/packages/bin/:$PATH"
-
-# export PATH="./bin:$PATH"
-export PATH="./node_modules/.bin:$PATH"
-# export PATH="./env/bin:$PATH"
-export PATH="/usr/local/Cellar/libpq/11.1/bin/:$PATH"
-export PATH="$PATH:/usr/lib/jvm/jdk1.8.0_212/bin"
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-export ANDROID_NDK_HOME="/usr/local/share/android-ndk"
-export ANDROID_SDK_ROOT="/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk"
 
 # Pure https://github.com/sindresorhus/pure
 export PURE_CMD_MAX_EXEC_TIME="1"
 export PURE_GIT_PULL=0
+autoload -Uz compinit; compinit
 autoload -U promptinit; promptinit
 prompt pure
 
-
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 # asdf
-. /usr/local/opt/asdf/libexec/asdf.sh
+. "$HOME/.asdf/asdf.sh"
 
-# libpq
-export PATH="/usr/local/opt/libpq/bin:$PATH"
-
-
-{{- if eq .email "albert.callarisa@lingokids.com" }}
-# Lingokids AWS
-export AWS_PROFILE=sts
-alias login_aws='gsts --idp-id $GOOGLE_IDP_ID --sp-id $GOOGLE_SP_ID --username albert.callarisa@lingokids.com --aws-role-arn $AWS_ASSUME_ROLE --aws-session-duration=32400'
-{{- end }}
-
-source /Users/albert/.docker/init-zsh.sh || true # Added by Docker Desktop
