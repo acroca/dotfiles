@@ -7,11 +7,11 @@
 [user]
   name = Albert Callarisa
   email = {{ .email }}
-{{- if eq .email "albert.callarisa@lingokids.com" }}
-  signingkey = 1A5BE178DA649AC7
+{{- if eq .email "acallarisa@polygon.technology" }}
+  signingkey = 1CA1D5878C7FFA18
 {{- end }}
 
-{{- if eq .email "albert.callarisa@lingokids.com" }}
+{{- if eq .email "acallarisa@polygon.technology" }}
 [commit]
   gpgsign = true
 {{- end }}
@@ -81,3 +81,5 @@
   process = git-lfs filter-process
 [url "git@github.com:"]
   insteadOf = https://github.com/
+[safe]
+	directory = /Users/acallarisa/code/*
