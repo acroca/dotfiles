@@ -9,6 +9,10 @@
 	<key>ProgramArguments</key>
 	<array>
 		<string>/usr/bin/ssh</string>
+		<string>-L</string>
+		<string>50071:localhost:51071</string>
+		<string>-L</string>
+		<string>50061:localhost:50061</string>
 		<string>-N</string>
 		<string>dev</string>
 	</array>
