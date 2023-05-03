@@ -209,7 +209,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 6
+font pango:DejaVu Sans Mono 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -338,9 +338,9 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id ~/bin/volume-up #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id ~/bin/volume-down #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id ~/bin/volume-mute # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 
 bindsym XF86AudioPlay exec --no-startup-id "playerctl play-pause"
 bindsym XF86AudioStop exec --no-startup-id "playerctl stop"
@@ -356,7 +356,7 @@ for_window [class="Firefox"] border pixel 1
 
 bindsym $mod+Print exec --no-startup-id maim -s ~/Desktop/$(date +%s).png
 bindsym $mod+m exec --no-startup-id ~/.config/i3/screens.sh
-bindsym $mod+Shift+m exec --no-startup-id ~/.config/i3/wide-split.sh
+bindsym $mod+Shift+m exec --no-startup-id ~/.config/i3/laptop_screen.sh
 
 # [ and ] keys to move workspaces to different monitors
 bindcode $mod+34 move workspace to output left
@@ -365,10 +365,10 @@ bindcode $mod+35 move workspace to output right
 exec --no-startup-id xset +fp /home/albert/.local/share/fonts
 exec --no-startup-id xset fp rehash
 exec_always --no-startup-id xset -dpms r rate 185 50 s off
-exec_always --no-startup-id setxkbmap -option compose:ralt -option caps:ctrl_modifier
-exec_always --no-startup-id ~/bin/picom
+exec_always --no-startup-id setxkbmap -option compose:ralt -option altwin:swap_alt_win
+# exec_always --no-startup-id ~/bin/picom
 exec --no-startup-id ~/.config/i3/screens.sh
-exec --no-startup-id ~/bin/setup-audio.sh
+# exec --no-startup-id ~/bin/setup-audio.sh
 exec --no-startup-id nm-applet
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
