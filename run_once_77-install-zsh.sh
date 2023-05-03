@@ -1,2 +1,2 @@
 #!/bin/sh
-brew install zsh
+sudo apt install zsh

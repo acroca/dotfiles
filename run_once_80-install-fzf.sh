@@ -1,2 +1,2 @@
 #!/bin/sh
-brew install fzf
+sudo apt install fzf
