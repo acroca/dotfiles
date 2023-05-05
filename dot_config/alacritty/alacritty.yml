@@ -573,6 +573,8 @@ key_bindings:
   - { key: C,      mods: Control,       action: Copy             }
   - { key: V,      mods: Control,       action: Paste            }
   - { key: C,      mods: Control|Shift, chars: "\x03"            }
+  - { key: PageUp,    action: ScrollPageUp}
+  - { key: PageDown,  action: ScrollPageDown}
 #debug:
   # Display the time it takes to redraw each frame.
   #render_timer: false
