@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 12
+font pango:Fira Code 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -154,6 +154,8 @@ bindsym XF86AudioPrev exec --no-startup-id "playerctl previous"
 bindsym XF86AudioNext exec --no-startup-id "playerctl next"
 
 for_window [class="zoom" instance="zoom"] floating enable
+for_window [class="1Password"] floating enable
+for_window [class="Spotify"] floating enable
 for_window [class="Alacritty"] border pixel 1
 for_window [class="Firefox"] border pixel 1
 
@@ -169,7 +171,7 @@ exec_always --no-startup-id setxkbmap -option compose:ralt -option altwin:swap_a
 exec --no-startup-id ~/.config/i3/screens.sh
 # exec --no-startup-id ~/bin/setup-audio.sh
 exec --no-startup-id nm-applet
-exec --no-startup-id albert
+exec --no-startup-id zsh -i -c 'albert'
 exec --no-startup-id picom
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
