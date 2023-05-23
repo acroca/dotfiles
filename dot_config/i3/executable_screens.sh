@@ -1,6 +1,7 @@
 #!/bin/bash
 
 xrandr_commands=()
+xrandr_commands+=("--dpi 75")
 
 disconnected_screens=$(xrandr --query | grep " disconnected" | awk '{ print $1 }')
 for screen in $disconnected_screens; do

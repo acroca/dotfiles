@@ -200,7 +200,10 @@ colors:
     magenta: '#dcbdfb'
     cyan:    '#96d0ff'
     white:   '#adbac7'
-
+  search:
+    focused_match:
+      foreground: '#22272e' #black
+      background: '#f69d50' #yellow
 # Colors (Tomorrow Night Bright)
 #colors:
   # Default colors
