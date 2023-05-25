@@ -171,6 +171,7 @@ exec_always --no-startup-id setxkbmap -option compose:ralt -option altwin:swap_a
 exec --no-startup-id ~/.config/i3/screens.sh
 # exec --no-startup-id ~/bin/setup-audio.sh
 exec --no-startup-id nm-applet
+exec --no-startup-id pasystray
 exec --no-startup-id zsh -i -c 'albert'
 exec_always --no-startup-id picom
 exec_always --no-startup-id ~/.config/polybar/launch.sh
