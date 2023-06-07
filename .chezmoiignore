@@ -1,2 +1,6 @@
 README.md
 Makefile
+.config/Code/User/workspaceStorage
+.config/Code/User/projects.json
+.config/Code/User/globalStorage
+.config/polybar/log.txt

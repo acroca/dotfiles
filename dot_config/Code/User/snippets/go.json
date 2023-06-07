@@ -1,9 +1,0 @@
-{
-  "Debug": {
-    "prefix": "ps",
-    "description": "Print out a variable",
-    "body": [
-      "fmt.Printf(\"❌===> %[2]v: %+[1]v\\n\", $1, `$1`)"
-    ]
-  }
-}
