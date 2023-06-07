@@ -8,9 +8,4 @@ zstyle ':completion:*:*:*:*:*' menu select
 zstyle ':completion:*' special-dirs true
 zstyle ':completion:*' list-colors ''
 
-{{- if eq .email "albert.callarisa@form3.tech" }}
-# Kubectl
-source <(kubectl completion zsh)
-complete -F __start_kubectl k
-{{- end }}
 
