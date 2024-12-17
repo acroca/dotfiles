@@ -6,4 +6,10 @@ Here is my dotfiles.
 
 - Install [brew](https://brew.sh/)
 - `brew install chezmoi`
-- `chezmoi init https://github.com/acroca/dotfiles.git`
+- Create a new machine-specific configuration file in `~/.config/chezmoi/chezmoi.toml`
+    Example:
+    ```
+    [data]
+        email = "foo@bar.com"
+    ```
+- `chezmoi init --apply https://github.com/acroca/dotfiles.git`
