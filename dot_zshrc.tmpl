@@ -1,8 +1,10 @@
 fpath+=($HOME/.zsh/pure)
 FZF_CTRL_R_OPTS=--reverse
 
+export FPATH=$FPATH:/opt/homebrew/opt/lsd/share/zsh/site-functions
+
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
-source /opt/homebrew/opt/fzf/shell/completion.zsh
+# source /opt/homebrew/opt/fzf/shell/completion.zsh
 source ~/.zsh/git.sh
 source ~/.zsh/history.sh
 source ~/.zsh/completion.sh
@@ -15,6 +17,7 @@ export EDITOR="code --wait"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export FPATH=$FPATH:$HOME/bin
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
@@ -35,3 +38,9 @@ export HOMEBREW_REPOSITORY="/opt/homebrew";
 export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+
+{{- if eq .email "albert.callarisa@form3.tech" }}
+export OPENSSL_CONF=$HOME/openssl.cnf
+source "/opt/homebrew/share/google-cloud-sdk/path.zsh.inc"
+source "/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc"
+{{- end }}
