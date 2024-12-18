@@ -4,3 +4,7 @@ Makefile
 .config/Code/User/projects.json
 .config/Code/User/globalStorage
 .config/polybar/log.txt
+
+{{- if eq .email "albert.callarisa@form3.tech" }}
+Library/Application\ Support/Cursor
+{{- end }}
