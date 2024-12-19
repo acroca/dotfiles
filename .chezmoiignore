@@ -8,3 +8,7 @@ Makefile
 {{- if eq .email "albert.callarisa@form3.tech" }}
 Library/Application\ Support/Cursor
 {{- end }}
+
+{{- if ne .email "albert.callarisa@form3.tech" }}
+Library/Application\ Support/Code
+{{- end }}
