@@ -41,5 +41,9 @@
       "value": 10
     },
     "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent"
   }
 ]

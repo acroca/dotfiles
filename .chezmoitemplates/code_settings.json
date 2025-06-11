@@ -96,4 +96,8 @@
     "terminal.integrated.scrollback": 10000,
     "diffEditor.renderSideBySide": true,
     "jsonnet.languageServer.continuousEval": false,
+    "cursor.cpp.disabledLanguages": [
+      "plaintext"
+    ],
+    "explorer.confirmDelete": false
   }
