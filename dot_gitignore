@@ -1,7 +1,8 @@
 *~
 *.swp
 *.swo
-asdasd*
+*asdasd*
+mise.local.toml
 .DS_Store
 *.http
 

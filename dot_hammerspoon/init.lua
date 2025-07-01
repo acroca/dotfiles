@@ -1,28 +1,63 @@
 hs.window.animationDuration = 0
 
+local pushWindow = function(win, x, y, w, h)
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x + (max.w * x)
+  f.y = max.y + (max.h * y)
+  f.w = max.w * w
+  f.h = max.h * h
+  win:setFrame(f)
+
+  -- Hack: https://github.com/Hammerspoon/hammerspoon/issues/3224#issuecomment-1294359070
+  local axApp = hs.axuielement.applicationElement(win:application())
+  local wasEnhanced = axApp.AXEnhancedUserInterface
+  if wasEnhanced then
+    axApp.AXEnhancedUserInterface = false
+  end
+  win:setFrame(f) -- or win:moveToScreen(someScreen), etc.
+  if wasEnhanced then
+    axApp.AXEnhancedUserInterface = true
+  end
+end
+
 local push = function(x, y, w, h)
   return function()
     local win = hs.window.focusedWindow()
+    pushWindow(win, x, y, w, h)
+  end
+end
 
-    local f = win:frame()
-    local screen = win:screen()
-    local max = screen:frame()
+local pushAll = function(app, x, y, w, h)
+  local windows = hs.application.get(app):allWindows()
+  for key, win in pairs(windows) do
+    pushWindow(win, x,y,w,h)
+  end
+end
 
-    f.x = max.x + (max.w * x)
-    f.y = max.y + (max.h * y)
-    f.w = max.w * w
-    f.h = max.h * h
+local normalLayout = function()
+  if hs.screen.mainScreen():currentMode()["w"] < 2000 then
+    -- TODO: Laptop screen
+  else
+    pushAll("Cursor", 1/3, 0, 2/3, 1)
+    pushAll("Firefox", 1/3, 0, 2/3, 1)
+    pushAll("Slack", 1/3, 0, 2/3, 1)
+    pushAll("iTerm", 0, 0, 1/3, 1)
+    pushAll("Obsidian", 0, 0.1, 1/3, 0.8)
+  end
+end
 
-    -- Hack: https://github.com/Hammerspoon/hammerspoon/issues/3224#issuecomment-1294359070
-    local axApp = hs.axuielement.applicationElement(win:application())
-    local wasEnhanced = axApp.AXEnhancedUserInterface
-    if wasEnhanced then
-      axApp.AXEnhancedUserInterface = false
-    end
-    win:setFrame(f) -- or win:moveToScreen(someScreen), etc.
-    if wasEnhanced then
-      axApp.AXEnhancedUserInterface = true
-    end
+local callLayout = function()
+  if hs.screen.mainScreen():currentMode()["w"] < 2000 then
+    -- TODO: Laptop screen
+  else
+    pushAll("Cursor", 1/3, 0, 1/2, 1)
+    pushAll("Firefox", 1/3, 0, 1/2, 1)
+    pushAll("Slack", 1/3, 0, 1/2, 1)
+    pushAll("iTerm", 0, 0, 1/3, 1)
+    pushAll("Obsidian", 0, 0.1, 1/3, 0.8)
   end
 end
 
@@ -39,6 +74,8 @@ hs.hotkey.bind({"alt", "ctrl"}, "d", push(0, 0, 1/3, 1))
 hs.hotkey.bind({"alt", "ctrl"}, "f", push(1/3, 0, 1/3, 1))
 hs.hotkey.bind({"alt", "ctrl"}, "g", push(2/3, 0, 1/3, 1))
 
+hs.hotkey.bind({"alt", "ctrl"}, "m", normalLayout)
+hs.hotkey.bind({"alt", "ctrl"}, "n", callLayout)
 
 hs.hotkey.bind({"cmd"}, "e", function()
   if hs.application.frontmostApplication():title() == "Obsidian" then

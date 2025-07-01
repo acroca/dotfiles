@@ -99,5 +99,11 @@
     "cursor.cpp.disabledLanguages": [
       "plaintext"
     ],
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "go.testTags": "integration",
+    "git.alwaysSignOff": true,
+    "[python]": {
+      "diffEditor.ignoreTrimWhitespace": false
+    },
+    "gitlens.launchpad.indicator.enabled": false
   }
