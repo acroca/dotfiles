@@ -3,6 +3,9 @@ FZF_CTRL_R_OPTS=--reverse
 
 export FPATH=$FPATH:/opt/homebrew/opt/lsd/share/zsh/site-functions
 
+autoload -Uz compinit; compinit
+autoload -U promptinit; promptinit
+
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 # source /opt/homebrew/opt/fzf/shell/completion.zsh
 source ~/.zsh/git.sh
@@ -24,8 +27,6 @@ export PATH="$HOME/go/bin:$PATH"
 # Pure https://github.com/sindresorhus/pure
 export PURE_CMD_MAX_EXEC_TIME="1"
 export PURE_GIT_PULL=0
-autoload -Uz compinit; compinit
-autoload -U promptinit; promptinit
 prompt pure
 
 # mise

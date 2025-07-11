@@ -97,7 +97,8 @@
     "diffEditor.renderSideBySide": true,
     "jsonnet.languageServer.continuousEval": false,
     "cursor.cpp.disabledLanguages": [
-      "plaintext"
+      "plaintext",
+      "untitled"
     ],
     "explorer.confirmDelete": false,
     "go.testTags": "integration",
@@ -105,5 +106,6 @@
     "[python]": {
       "diffEditor.ignoreTrimWhitespace": false
     },
-    "gitlens.launchpad.indicator.enabled": false
+    "gitlens.launchpad.indicator.enabled": false,
+    "git.openRepositoryInParentFolders": "never",
   }
