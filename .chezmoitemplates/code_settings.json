@@ -62,7 +62,7 @@
     "editor.fontSize": 12,
     "editor.fontLigatures": true,
     "vsicons.dontShowNewVersionMessage": true,
-    "editor.fontFamily": "'Fira Code', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "'FiraCode Nerd Font Mono'",
     "workbench.colorTheme": "GitHub Dark Dimmed",
     "explorer.confirmDragAndDrop": false,
     "editor.cursorSurroundingLines": 4,
