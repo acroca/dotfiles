@@ -98,14 +98,15 @@
     "jsonnet.languageServer.continuousEval": false,
     "cursor.cpp.disabledLanguages": [
       "plaintext",
-      "untitled"
+      "log"
     ],
     "explorer.confirmDelete": false,
     "go.testTags": "integration",
     "git.alwaysSignOff": true,
+    "gitlens.launchpad.indicator.enabled": false,
+    "git.openRepositoryInParentFolders": "never",
+    "cursorpyright.analysis.typeCheckingMode": "strict",
     "[python]": {
       "diffEditor.ignoreTrimWhitespace": false
     },
-    "gitlens.launchpad.indicator.enabled": false,
-    "git.openRepositoryInParentFolders": "never",
   }

@@ -39,7 +39,11 @@ end
 
 local normalLayout = function()
   if hs.screen.mainScreen():currentMode()["w"] < 2000 then
-    -- TODO: Laptop screen
+    pushAll("Cursor", 0, 0, 1, 1)
+    pushAll("Firefox", 0, 0, 1, 1)
+    pushAll("Slack", 0, 0, 1, 1)
+    pushAll("iTerm", 0, 0, 1, 1)
+    pushAll("Obsidian", 2/10, 2/10, 6/10, 6/10)
   else
     pushAll("Cursor", 1/3, 0, 2/3, 1)
     pushAll("Firefox", 1/3, 0, 2/3, 1)
@@ -51,7 +55,12 @@ end
 
 local callLayout = function()
   if hs.screen.mainScreen():currentMode()["w"] < 2000 then
-    -- TODO: Laptop screen
+    pushAll("Cursor", 0, 0, 8/10, 1)
+    pushAll("Firefox", 0, 0, 8/10, 1)
+    pushAll("Slack", 0, 0, 8/10, 1)
+    pushAll("iTerm", 0, 0, 8/10, 1)
+    pushAll("Obsidian", 2/10, 2/10, 6/10, 6/10)
+    pushAll("Google Meet", 8/10, 0, 2/10, 1)
   else
     pushAll("Cursor", 2/10, 0, 7/10, 1)
     pushAll("Firefox", 2/10, 0, 7/10, 1)
@@ -101,3 +110,17 @@ hs.hotkey.bind({"cmd"}, "4", function()
     hs.application.launchOrFocus("Slack")
   end
 end)
+
+-- Prevent macOS from sleeping (like caffeinate -di)
+-- local keepAwake = hs.caffeinate.new("SystemAwake", true)
+
+-- Enable when docked or always on AC power
+hs.battery.watcher.new(function()
+    if hs.battery.isCharging() then
+        hs.caffeinate.set("displayIdle", true, true)
+        hs.caffeinate.set("systemIdle", true, true)
+    else
+        hs.caffeinate.set("displayIdle", false, true)
+        hs.caffeinate.set("systemIdle", false, true)
+    end
+end):start()

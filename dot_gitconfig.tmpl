@@ -23,7 +23,7 @@
   ci= commit
   co= checkout
   l=log --graph --pretty=format:'%Cgreen%h%Cblue%d%Creset %s %Cred%an%Creset'
-  hub = "!f(){ open `git remote -v | awk '/fetch/{print $2}' | sed -Ee 's#(git@|git://)#http://#' -e 's@com:@com/@'`| head     -n1; }; f"
+  up = "!f(){ \n  set -euo pipefail\n  echo \"🔄 Fetching all remotes...\"\n  git fetch --all --prune --tags\n\n  echo \"⚙️  Syncing local branches with origin...\"\n  for b in $(git for-each-ref --format \"%(refname:lstrip=3)\" refs/remotes/origin | grep -vE \"HEAD$\"); do\n    if git show-ref --verify --quiet \"refs/heads/$b\"; then\n      git branch -f \"$b\" \"origin/$b\"\n    else\n      git branch --track \"$b\" \"origin/$b\" 2>/dev/null || true\n    fi\n  done\n\n  echo \"🚀 Mirroring all upstream branches & tags to origin (atomic, force-with-lease)...\"\n  refs=$(git for-each-ref --format \"refs/remotes/upstream/%(refname:lstrip=3):refs/heads/%(refname:lstrip=3)\" refs/remotes/upstream | grep -vE \"HEAD$\")\n  git push --atomic --force-with-lease origin $refs refs/tags/*\n\n  echo \"✅ Local branches now track origin; origin fully mirrors upstream.\"\n}; f"
 
 [pull]
   rebase = false
