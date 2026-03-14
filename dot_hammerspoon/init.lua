@@ -39,13 +39,13 @@ end
 
 local normalLayout = function()
   if hs.screen.mainScreen():currentMode()["w"] < 2000 then
-    pushAll("Cursor", 0, 0, 1, 1)
+    pushAll("Code", 0, 0, 1, 1)
     pushAll("Firefox", 0, 0, 1, 1)
     pushAll("Slack", 0, 0, 1, 1)
     pushAll("iTerm", 0, 0, 1, 1)
     pushAll("Obsidian", 2/10, 2/10, 6/10, 6/10)
   else
-    pushAll("Cursor", 1/3, 0, 2/3, 1)
+    pushAll("Code", 1/3, 0, 2/3, 1)
     pushAll("Firefox", 1/3, 0, 2/3, 1)
     pushAll("Slack", 1/3, 0, 2/3, 1)
     pushAll("iTerm", 0, 0, 1/3, 1)
@@ -55,14 +55,14 @@ end
 
 local callLayout = function()
   if hs.screen.mainScreen():currentMode()["w"] < 2000 then
-    pushAll("Cursor", 0, 0, 8/10, 1)
+    pushAll("Code", 0, 0, 8/10, 1)
     pushAll("Firefox", 0, 0, 8/10, 1)
     pushAll("Slack", 0, 0, 8/10, 1)
     pushAll("iTerm", 0, 0, 8/10, 1)
     pushAll("Obsidian", 2/10, 2/10, 6/10, 6/10)
     pushAll("Google Meet", 8/10, 0, 2/10, 1)
   else
-    pushAll("Cursor", 2/10, 0, 7/10, 1)
+    pushAll("Code", 2/10, 0, 7/10, 1)
     pushAll("Firefox", 2/10, 0, 7/10, 1)
     pushAll("Slack", 2/10, 0, 7/10, 1)
     pushAll("iTerm", 0, 0, 2/10, 1)
@@ -95,7 +95,7 @@ hs.hotkey.bind({"cmd"}, "e", function()
   end
 end)
 hs.hotkey.bind({"cmd"}, "1", function()
-  hs.application.launchOrFocus("Cursor")
+  hs.application.launchOrFocus("Visual Studio Code")
 end)
 hs.hotkey.bind({"cmd"}, "2", function()
   hs.application.launchOrFocus("iTerm")

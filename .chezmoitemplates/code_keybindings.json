@@ -45,6 +45,5 @@
   {
     "key": "cmd+i",
     "command": "composerMode.agent"
-  },
-  { "key": "cmd+;", "command": "-cursor.cycleComposerLocation"}
+  }
 ]
