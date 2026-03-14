@@ -12,10 +12,6 @@ alias ls='lsd'
 alias l='ls -lah'
 alias k='kubectl'
 
-{{- if eq .email "albert.callarisa@form3.tech" }}
-alias tfe_token='eval $(f3 secret export TF_TOKEN_terraform_management_form3_tech --source)'
-{{- end }}
-
 sc() {
   local res=$(~/bin/sc --eval);
   eval ${res};
