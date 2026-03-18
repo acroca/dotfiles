@@ -31,7 +31,12 @@ local push = function(x, y, w, h)
 end
 
 local pushAll = function(app, x, y, w, h)
-  local windows = hs.application.get(app):allWindows()
+  local application = hs.application.get(app)
+  if not application then
+    return
+  end
+
+  local windows = application:allWindows()
   for key, win in pairs(windows) do
     pushWindow(win, x,y,w,h)
   end
