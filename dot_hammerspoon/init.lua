@@ -43,13 +43,13 @@ local normalLayout = function()
     pushAll("Firefox", 0, 0, 1, 1)
     pushAll("Slack", 0, 0, 1, 1)
     pushAll("cmux", 0, 0, 1, 1)
-    pushAll("Obsidian", 2/10, 2/10, 6/10, 6/10)
+    pushAll("Obsidian", 0, 0, 1, 1)
   else
     pushAll("Code", 1/3, 0, 2/3, 1)
     pushAll("Firefox", 1/3, 0, 2/3, 1)
     pushAll("Slack", 1/3, 0, 2/3, 1)
-    pushAll("cmux", 0, 0, 1/3, 1)
-    pushAll("Obsidian", 3/10, 2/10, 4/10, 6/10)
+    pushAll("cmux", 0, 0, 1/2, 1)
+    pushAll("Obsidian", 2/10, 1/10, 6/10, 8/10)
   end
 end
 
@@ -65,7 +65,7 @@ local callLayout = function()
     pushAll("Code", 2/10, 0, 7/10, 1)
     pushAll("Firefox", 2/10, 0, 7/10, 1)
     pushAll("Slack", 2/10, 0, 7/10, 1)
-    pushAll("cmux", 0, 0, 2/10, 1)
+    pushAll("cmux", 0, 0, 4/10, 1)
     pushAll("Obsidian", 3/10, 2/10, 4/10, 6/10)
     pushAll("Google Meet", 9/10, 0, 1/10, 1/2)
   end

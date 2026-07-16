@@ -8,3 +8,6 @@ mise.local.toml
 
 .vscode
 .goreleaser.yml
+.claude/worktrees
+
+**/.claude/.cc-writes/

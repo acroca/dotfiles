@@ -11,8 +11,115 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 alias ls='lsd'
 alias l='ls -lah'
 alias k='kubectl'
+alias glhf='claude --dangerously-skip-permissions'
 
-sc() {
-  local res=$(~/bin/sc --eval);
-  eval ${res};
+wt() {
+  local branch="$1"
+  if [[ -z "$branch" ]]; then
+    echo "Usage: wt <branch-name>"
+    return 1
+  fi
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel) || return 1
+  local repo_name
+  repo_name=$(basename "$repo_root")
+  local wt_path="${repo_root}/../${repo_name}-wt-${branch}"
+
+  local -a add_args
+  local description
+  if git -C "$repo_root" show-ref --verify --quiet "refs/heads/${branch}"; then
+    # Existing local branch: check it out directly
+    add_args=("$wt_path" "$branch")
+    description="existing branch $branch"
+  else
+    local remote_ref
+    remote_ref=$(_wt_find_remote_ref "$repo_root" "$branch")
+    if [[ -n "$remote_ref" ]]; then
+      # Existing remote branch: create a local branch tracking it
+      add_args=(-b "$branch" "$wt_path" "$remote_ref")
+      description="tracking $remote_ref"
+    else
+      # New branch: base on default branch of upstream (or origin).
+      # --no-track: without it, git auto-sets the base's remote-tracking ref
+      # (e.g. upstream/master) as the branch upstream; push with -u to track origin.
+      local base_ref
+      base_ref=$(_wt_default_base_ref "$repo_root") || return 1
+      add_args=(--no-track -b "$branch" "$wt_path" "$base_ref")
+      description="based on $base_ref"
+    fi
+  fi
+
+  git -C "$repo_root" worktree add "${add_args[@]}" || return 1
+  echo "Worktree created at $wt_path ($description)"
+
+  if [[ -f "$repo_root/mise.local.toml" ]]; then
+    cp "$repo_root/mise.local.toml" "$wt_path/mise.local.toml"
+  fi
+  cd "$wt_path" || return 1
+  command -v mise &>/dev/null && mise trust
+}
+
+_wt_find_remote_ref() {
+  local repo_root="$1" branch="$2" r
+  for r in origin upstream; do
+    if git -C "$repo_root" show-ref --verify --quiet "refs/remotes/${r}/${branch}"; then
+      echo "${r}/${branch}"
+      return 0
+    fi
+  done
+}
+
+_wt_default_base_ref() {
+  local repo_root="$1" remote
+  if git -C "$repo_root" remote get-url upstream &>/dev/null; then
+    remote="upstream"
+  elif git -C "$repo_root" remote get-url origin &>/dev/null; then
+    remote="origin"
+  else
+    echo "No 'upstream' or 'origin' remote found" >&2
+    return 1
+  fi
+
+  local default_ref
+  default_ref=$(git -C "$repo_root" symbolic-ref --quiet "refs/remotes/${remote}/HEAD" 2>/dev/null)
+  if [[ -z "$default_ref" ]]; then
+    git -C "$repo_root" remote set-head "$remote" -a &>/dev/null
+    default_ref=$(git -C "$repo_root" symbolic-ref --quiet "refs/remotes/${remote}/HEAD" 2>/dev/null)
+  fi
+  if [[ -z "$default_ref" ]]; then
+    echo "Could not determine default branch of '${remote}'" >&2
+    return 1
+  fi
+  echo "${default_ref#refs/remotes/}"
+}
+
+wt-rm() {
+  local branch="$1"
+  local repo_root
+  repo_root=$(git rev-parse --show-toplevel) || return 1
+  local repo_name
+  repo_name=$(basename "$repo_root")
+
+  if [[ -z "$branch" ]]; then
+    if ! command -v fzf &>/dev/null; then
+      echo "Usage: wt-rm <branch-name>  (install fzf for interactive selection)"
+      return 1
+    fi
+    local candidates
+    candidates=$(git -C "$repo_root" worktree list | awk -v main="$repo_root" '$1 != main')
+    if [[ -z "$candidates" ]]; then
+      echo "No worktrees to remove"
+      return 0
+    fi
+    local selected
+    selected=$(echo "$candidates" | fzf --prompt="Remove worktree: " --height=40% --reverse --no-multi)
+    if [[ -z "$selected" ]]; then
+      echo "No worktree selected"
+      return 1
+    fi
+    local wt_path="${selected%% *}"
+    git -C "$repo_root" worktree remove "$wt_path"
+  else
+    git -C "$repo_root" worktree remove "${repo_root}/../${repo_name}-wt-${branch}"
+  fi
 }

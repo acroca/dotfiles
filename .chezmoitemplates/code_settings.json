@@ -98,5 +98,11 @@
   "comments.thread.confirmOnCollapse": "never",
   "githubPullRequests.terminalLinksHandler": "github",
   "githubPullRequests.pullBranch": "never",
-  "claudeCode.preferredLocation": "panel"
+  "claudeCode.preferredLocation": "panel",
+  "gitlens.ai.model": "vscode",
+  "gitlens.ai.vscode.model": "copilot:claude-opus-4.6",
+  "scm.repositories.selectionMode": "single",
+  "chat.agent.enabled": false,
+  "chat.viewSessions.enabled": false,
+  "chat.disableAIFeatures": true
 }

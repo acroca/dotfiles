@@ -28,7 +28,5 @@ MINS=$((DURATION_MS / 60000)); SECS=$(((DURATION_MS % 60000) / 1000))
 BRANCH=""
 git rev-parse --git-dir > /dev/null 2>&1 && BRANCH=" $(git branch --show-current 2>/dev/null)"
 
-COST_FMT=$(printf '$%.2f' "$COST")
-
 SHORT_DIR="~${DIR#$HOME}"
-echo -e "📁 ${BLUE}${SHORT_DIR}${GREY}${BRANCH}${RESET} ${CYAN}[$MODEL]${RESET} ${BAR_COLOR}${BAR}${RESET} ${PCT}% | ${YELLOW}${COST_FMT}${RESET} | ⏱️ ${MINS}m ${SECS}s"
+echo -e "📁 ${BLUE}${SHORT_DIR}${GREY}${BRANCH}${RESET} ${CYAN}[$MODEL]${RESET} ${BAR_COLOR}${BAR}${RESET} ${PCT}%${RESET} | ⏱️ ${MINS}m ${SECS}s"
