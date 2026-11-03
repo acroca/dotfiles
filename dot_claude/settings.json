@@ -5,62 +5,14 @@
       "Edit(~/.cache/uv**)"
     ],
     "deny": [
-      "Bash(git add:*)",
-      "Bash(git commit:*)",
-      "Bash(git push:*)",
-      "Bash(git pull:*)",
-      "Bash(git fetch:*)",
-      "Bash(git merge:*)",
-      "Bash(git rebase:*)",
-      "Bash(git reset:*)",
-      "Bash(git revert:*)",
-      "Bash(git cherry-pick:*)",
-      "Bash(git checkout:*)",
-      "Bash(git switch:*)",
-      "Bash(git restore:*)",
-      "Bash(git rm:*)",
-      "Bash(git mv:*)",
-      "Bash(git stash:*)",
-      "Bash(git clean:*)",
-      "Bash(git tag:*)",
-      "Bash(git branch:*)",
-      "Bash(git am:*)",
-      "Bash(git apply:*)",
-      "Bash(git clone:*)",
-      "Bash(git init:*)",
-      "Bash(git config:*)",
-      "Bash(git remote:*)",
-      "Bash(git submodule:*)",
-      "Bash(git worktree:*)",
-      "Bash(git update-ref:*)",
-      "Bash(git update-index:*)",
-      "Bash(git notes:*)",
-      "Bash(git gc:*)",
-      "Bash(git prune:*)",
-      "Bash(git filter-branch:*)",
-      "Bash(git sparse-checkout:*)"
+      "Read(**/.ssh/**)",
+      "Edit(**/.ssh/**)",
+      "Edit(~/.claude/hooks/**)",
+      "Edit(~/.claude/settings.json)"
     ]
   },
-  "model": "claude-fable-5[1m]",
-  "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          { "type": "command", "command": "node \"$HOME/.claude/hooks/deny-git-writes.js\"", "timeout": 10 }
-        ]
-      },
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "npx block-no-verify@1.1.2"
-          }
-        ]
-      }
-    ]
-  },
+  "model": "opus",
+  "hooks": {},
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
@@ -79,13 +31,19 @@
         "api.github.com",
         "github.com",
         "uploads.github.com"
-      ]
+      ],
+      "allowLocalBinding": true
     },
     "enableWeakerNetworkIsolation": true
   },
   "effortLevel": "xhigh",
+  "awaySummaryEnabled": false,
   "tui": "fullscreen",
   "skipDangerousModePermissionPrompt": true,
   "agentPushNotifEnabled": true,
-  "awaySummaryEnabled": false
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "xhigh"
+    }
+  }
 }

@@ -108,11 +108,29 @@ end)
 hs.hotkey.bind({"cmd"}, "3", function()
   hs.application.launchOrFocus("Firefox")
 end)
+
+local slackBundleID = "com.tinyspeck.slackmacgap"
+local discordBundleID = "com.hnc.Discord"
+local function isInstalled(bundleID)
+  local path = hs.application.pathForBundleID(bundleID)
+  return path ~= nil and path ~= ""
+end
 hs.hotkey.bind({"cmd"}, "4", function()
-  if hs.application.frontmostApplication():title() == "Slack" then
+  local slackInstalled = isInstalled(slackBundleID)
+  local discordInstalled = isInstalled(discordBundleID)
+
+  if slackInstalled and discordInstalled then
+    if hs.application.frontmostApplication():title() == "Slack" then
+      hs.application.launchOrFocus("Discord")
+    else
+      hs.application.launchOrFocus("Slack")
+    end
+  elseif discordInstalled then
     hs.application.launchOrFocus("Discord")
-  else
+  elseif slackInstalled then
     hs.application.launchOrFocus("Slack")
+  else
+    hs.alert.show("Neither Slack nor Discord is installed")
   end
 end)
 

@@ -104,5 +104,7 @@
   "scm.repositories.selectionMode": "single",
   "chat.agent.enabled": false,
   "chat.viewSessions.enabled": false,
-  "chat.disableAIFeatures": true
+  "chat.disableAIFeatures": true,
+  "explorer.confirmPasteNative": false,
+  "terminal.integrated.initialHint": false
 }

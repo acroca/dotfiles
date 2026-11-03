@@ -11,3 +11,5 @@ mise.local.toml
 .claude/worktrees
 
 **/.claude/.cc-writes/
+
+**/.claude/settings.local.json
