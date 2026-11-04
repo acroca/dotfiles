@@ -7,6 +7,16 @@
 [user]
   name = Albert Callarisa
   email = {{ .email }}
+  {{- if eq .email "acallarisa@tigerdata.com" }}
+  signingkey = F20283319E1704B5
+
+[commit]
+  gpgsign = true
+[tag]
+  gpgSign = true
+[gpg]
+  program = /opt/homebrew/bin/gpg
+  {{- end }}
 
 [alias]
   st = status -bs
