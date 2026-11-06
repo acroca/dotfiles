@@ -101,7 +101,7 @@
   "claudeCode.preferredLocation": "panel",
   "gitlens.ai.model": "vscode",
   "gitlens.ai.vscode.model": "copilot:claude-opus-4.6",
-  "scm.repositories.selectionMode": "single",
+  "git.detectWorktrees": true,
   "chat.agent.enabled": false,
   "chat.viewSessions.enabled": false,
   "chat.disableAIFeatures": true,
