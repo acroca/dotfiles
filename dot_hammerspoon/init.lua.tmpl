@@ -147,3 +147,51 @@ hs.battery.watcher.new(function()
         hs.caffeinate.set("systemIdle", false, true)
     end
 end):start()
+
+{{- if hasKey . "monitor_input" }}
+-- Hammerspoon: switch the monitor to this Mac when the keyboard arrives
+-- through the USB switch, or when this Mac wakes up with it attached.
+-- Only rendered when `monitor_input` is set in the chezmoi config [data].
+
+local MY_INPUT = {{ .monitor_input }}   -- this Mac's monitor input (check with: m1ddc get input)
+
+local M1DDC            = "/opt/homebrew/bin/m1ddc"
+local KEYBOARD_VENDOR  = 0x3434   -- Keychron
+local KEYBOARD_PRODUCT = 0xd030   -- Keychron Link receiver
+
+local function setInput(code)
+  hs.task.new(M1DDC, function(rc, _, err)
+    if rc ~= 0 then print("m1ddc set input failed: " .. tostring(err)) end
+  end, { "set", "input", tostring(code) }):start()
+end
+
+local function isKeyboard(dev)
+  return dev.vendorID == KEYBOARD_VENDOR and dev.productID == KEYBOARD_PRODUCT
+end
+
+local function keyboardAttached()
+  for _, dev in ipairs(hs.usb.attachedDevices() or {}) do
+    if isKeyboard(dev) then return true end
+  end
+  return false
+end
+
+-- Globals (not locals) so they aren't garbage-collected.
+usbWatcher = hs.usb.watcher.new(function(dev)
+  if isKeyboard(dev) and dev.eventType == "added" then
+    hs.timer.doAfter(1, function() setInput(MY_INPUT) end)
+  end
+end)
+usbWatcher:start()
+
+wakeWatcher = hs.caffeinate.watcher.new(function(event)
+  if (event == hs.caffeinate.watcher.systemDidWake
+      or event == hs.caffeinate.watcher.screensDidWake)
+     and keyboardAttached() then
+    hs.timer.doAfter(2, function() setInput(MY_INPUT) end)
+  end
+end)
+wakeWatcher:start()
+
+hs.alert.show("Monitor auto-switch loaded (input " .. MY_INPUT .. ")")
+{{- end }}
