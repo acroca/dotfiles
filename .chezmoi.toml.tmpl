@@ -1,3 +1,5 @@
-{{- $email := promptString "email" -}}
+{{- $email := promptStringOnce . "email" "Email address to use in this machine" -}}
+{{- $monitor_input := promptStringOnce . "monitor_input" "Monitor input (m1ddc get input)" -}}
 [data]
   email = "{{ $email }}"
+  monitor_input = "{{ $monitor_input }}"
