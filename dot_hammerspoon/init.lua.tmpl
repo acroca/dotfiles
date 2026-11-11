@@ -1,157 +1,251 @@
 hs.window.animationDuration = 0
 
-local pushWindow = function(win, x, y, w, h)
+-- ---------------------------------------------------------------------------
+-- Helpers
+-- ---------------------------------------------------------------------------
+
+-- Positions ("rects") are {x, y, w, h} as fractions of the window's screen.
+local function pushWindow(win, rect)
+  local x, y, w, h = table.unpack(rect)
+  local screen = win:screen():frame()
   local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
+  f.x = screen.x + screen.w * x
+  f.y = screen.y + screen.h * y
+  f.w = screen.w * w
+  f.h = screen.h * h
 
-  f.x = max.x + (max.w * x)
-  f.y = max.y + (max.h * y)
-  f.w = max.w * w
-  f.h = max.h * h
-  win:setFrame(f)
-
-  -- Hack: https://github.com/Hammerspoon/hammerspoon/issues/3224#issuecomment-1294359070
+  -- Workaround: temporarily turn off AXEnhancedUserInterface while resizing.
+  -- https://github.com/Hammerspoon/hammerspoon/issues/3224#issuecomment-1294359070
   local axApp = hs.axuielement.applicationElement(win:application())
   local wasEnhanced = axApp.AXEnhancedUserInterface
-  if wasEnhanced then
-    axApp.AXEnhancedUserInterface = false
-  end
-  win:setFrame(f) -- or win:moveToScreen(someScreen), etc.
-  if wasEnhanced then
-    axApp.AXEnhancedUserInterface = true
-  end
+  if wasEnhanced then axApp.AXEnhancedUserInterface = false end
+  win:setFrame(f)
+  if wasEnhanced then axApp.AXEnhancedUserInterface = true end
 end
 
-local push = function(x, y, w, h)
+-- Returns a hotkey handler that moves the focused window to `rect`.
+local function pushFocused(rect)
   return function()
     local win = hs.window.focusedWindow()
-    pushWindow(win, x, y, w, h)
+    if win then pushWindow(win, rect) end
   end
 end
 
-local pushAll = function(app, x, y, w, h)
-  local application = hs.application.get(app)
-  if not application then
-    return
-  end
+-- Moves every window of `appName` (if it's running) to `rect`.
+local function pushAll(appName, rect)
+  local app = hs.application.get(appName)
+  if not app then return end
+  for _, win in ipairs(app:allWindows()) do pushWindow(win, rect) end
+end
 
-  local windows = application:allWindows()
-  for key, win in pairs(windows) do
-    pushWindow(win, x,y,w,h)
+local function frontmostIs(appName)
+  return hs.application.frontmostApplication():title() == appName
+end
+
+-- Returns a hotkey handler that launches or focuses `appName`.
+local function focusApp(appName)
+  return function() hs.application.launchOrFocus(appName) end
+end
+
+-- Returns a hotkey handler that focuses `appName`, or hides it if it's already in front.
+local function toggleApp(appName)
+  return function()
+    if frontmostIs(appName) then
+      hs.application.frontmostApplication():hide()
+    else
+      hs.application.launchOrFocus(appName)
+    end
   end
 end
 
-local normalLayout = function()
-  if hs.screen.mainScreen():currentMode()["w"] < 2000 then
-    pushAll("Code", 0, 0, 1, 1)
-    pushAll("Firefox", 0, 0, 1, 1)
-    pushAll("Slack", 0, 0, 1, 1)
-    pushAll("cmux", 0, 0, 1, 1)
-    pushAll("Obsidian", 0, 0, 1, 1)
-  else
-    pushAll("Code", 1/3, 0, 2/3, 1)
-    pushAll("Firefox", 1/3, 0, 2/3, 1)
-    pushAll("Slack", 1/3, 0, 2/3, 1)
-    pushAll("cmux", 0, 0, 1/2, 1)
-    pushAll("Obsidian", 2/10, 1/10, 6/10, 8/10)
-  end
-end
-
-local callLayout = function()
-  if hs.screen.mainScreen():currentMode()["w"] < 2000 then
-    pushAll("Code", 0, 0, 8/10, 1)
-    pushAll("Firefox", 0, 0, 8/10, 1)
-    pushAll("Slack", 0, 0, 8/10, 1)
-    pushAll("cmux", 0, 0, 8/10, 1)
-    pushAll("Obsidian", 2/10, 2/10, 6/10, 6/10)
-    pushAll("Google Meet", 8/10, 0, 2/10, 1)
-  else
-    pushAll("Code", 2/10, 0, 7/10, 1)
-    pushAll("Firefox", 2/10, 0, 7/10, 1)
-    pushAll("Slack", 2/10, 0, 7/10, 1)
-    pushAll("cmux", 0, 0, 4/10, 1)
-    pushAll("Obsidian", 3/10, 2/10, 4/10, 6/10)
-    pushAll("Google Meet", 9/10, 0, 1/10, 1/2)
-  end
-end
-
-hs.hotkey.bind({"alt", "ctrl"}, "return", push(0, 0, 1, 1))
-hs.hotkey.bind({"alt", "ctrl"}, "left", push(0, 0, 1/2, 1))
-hs.hotkey.bind({"alt", "ctrl"}, "right", push(1/2, 0, 1/2, 1))
-hs.hotkey.bind({"alt", "ctrl"}, "up", push(0, 0, 1, 1/2))
-hs.hotkey.bind({"alt", "ctrl"}, "down", push(0, 1/2, 1, 1/2))
-
-hs.hotkey.bind({"alt", "ctrl"}, "t", push(1/3, 0, 2/3, 1))
-hs.hotkey.bind({"alt", "ctrl"}, "e", push(0, 0, 2/3, 1))
-
-hs.hotkey.bind({"alt", "ctrl"}, "d", push(0, 0, 1/3, 1))
-hs.hotkey.bind({"alt", "ctrl"}, "f", push(1/3, 0, 1/3, 1))
-hs.hotkey.bind({"alt", "ctrl"}, "g", push(2/3, 0, 1/3, 1))
-
-hs.hotkey.bind({"alt", "ctrl"}, "m", normalLayout)
-hs.hotkey.bind({"alt", "ctrl"}, "n", callLayout)
-
-hs.hotkey.bind({"cmd"}, "e", function()
-  if hs.application.frontmostApplication():title() == "Obsidian" then
-    hs.application.frontmostApplication():hide()
-  else
-    hs.application.launchOrFocus("Obsidian")
-  end
-end)
-hs.hotkey.bind({"cmd"}, "1", function()
-  hs.application.launchOrFocus("Visual Studio Code")
-end)
-hs.hotkey.bind({"cmd"}, "2", function()
-  hs.application.launchOrFocus("cmux")
-end)
-hs.hotkey.bind({"cmd"}, "3", function()
-  hs.application.launchOrFocus("Firefox")
-end)
-
-local slackBundleID = "com.tinyspeck.slackmacgap"
-local discordBundleID = "com.hnc.Discord"
 local function isInstalled(bundleID)
   local path = hs.application.pathForBundleID(bundleID)
   return path ~= nil and path ~= ""
 end
-hs.hotkey.bind({"cmd"}, "4", function()
-  local slackInstalled = isInstalled(slackBundleID)
-  local discordInstalled = isInstalled(discordBundleID)
 
-  if slackInstalled and discordInstalled then
-    if hs.application.frontmostApplication():title() == "Slack" then
-      hs.application.launchOrFocus("Discord")
-    else
-      hs.application.launchOrFocus("Slack")
-    end
-  elseif discordInstalled then
-    hs.application.launchOrFocus("Discord")
-  elseif slackInstalled then
-    hs.application.launchOrFocus("Slack")
+-- ---------------------------------------------------------------------------
+-- Window management: alt+ctrl+key moves the focused window
+-- ---------------------------------------------------------------------------
+
+local windowPositions = {
+  ["return"] = {0,   0,   1,   1  }, -- full screen
+  left       = {0,   0,   1/2, 1  }, -- left half
+  right      = {1/2, 0,   1/2, 1  }, -- right half
+  up         = {0,   0,   1,   1/2}, -- top half
+  down       = {0,   1/2, 1,   1/2}, -- bottom half
+  e          = {0,   0,   2/3, 1  }, -- left two-thirds
+  t          = {1/3, 0,   2/3, 1  }, -- right two-thirds
+  d          = {0,   0,   1/3, 1  }, -- left third
+  f          = {1/3, 0,   1/3, 1  }, -- middle third
+  g          = {2/3, 0,   1/3, 1  }, -- right third
+}
+
+for key, rect in pairs(windowPositions) do
+  hs.hotkey.bind({"alt", "ctrl"}, key, pushFocused(rect))
+end
+
+-- ---------------------------------------------------------------------------
+-- Layouts: arrange all app windows at once
+--   alt+ctrl+m = normal, alt+ctrl+n = on a call
+-- "small" applies when the main screen is under 2000px wide.
+-- ---------------------------------------------------------------------------
+
+local layouts = {
+  normal = {
+    small = {
+      Code     = {0, 0, 1, 1},
+      Firefox  = {0, 0, 1, 1},
+      Slack    = {0, 0, 1, 1},
+      cmux     = {0, 0, 1, 1},
+      Obsidian = {0, 0, 1, 1},
+    },
+    large = {
+      Code     = {1/3,  0,    2/3,  1   },
+      Firefox  = {1/3,  0,    2/3,  1   },
+      Slack    = {1/3,  0,    2/3,  1   },
+      cmux     = {0,    0,    1/2,  1   },
+      Obsidian = {2/10, 1/10, 6/10, 8/10},
+    },
+  },
+  call = {
+    small = {
+      Code            = {0,    0,    8/10, 1   },
+      Firefox         = {0,    0,    8/10, 1   },
+      Slack           = {0,    0,    8/10, 1   },
+      cmux            = {0,    0,    8/10, 1   },
+      Obsidian        = {2/10, 2/10, 6/10, 6/10},
+      ["Google Meet"] = {8/10, 0,    2/10, 1   },
+    },
+    large = {
+      Code            = {2/10, 0,    7/10, 1   },
+      Firefox         = {2/10, 0,    7/10, 1   },
+      Slack           = {2/10, 0,    7/10, 1   },
+      cmux            = {0,    0,    4/10, 1   },
+      Obsidian        = {3/10, 2/10, 4/10, 6/10},
+      ["Google Meet"] = {9/10, 0,    1/10, 1/2 },
+    },
+  },
+}
+
+local function applyLayout(layout)
+  local small = hs.screen.mainScreen():currentMode().w < 2000
+  for appName, rect in pairs(small and layout.small or layout.large) do
+    pushAll(appName, rect)
+  end
+end
+
+hs.hotkey.bind({"alt", "ctrl"}, "m", function() applyLayout(layouts.normal) end)
+hs.hotkey.bind({"alt", "ctrl"}, "n", function() applyLayout(layouts.call) end)
+
+-- ---------------------------------------------------------------------------
+-- Caps Lock layer: hold Caps Lock + key for the app shortcuts below.
+--   Tap alone = Escape. Hold 1s = cheat sheet of all shortcuts.
+-- ---------------------------------------------------------------------------
+
+-- Remap Caps Lock -> F18. The mapping is lost on reboot, so re-apply on every load.
+hs.execute([[hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x70000006D}]}']])
+
+local hyper = hs.hotkey.modal.new()
+local hyperUsed = false     -- was a shortcut pressed during this hold?
+local hyperShortcuts = {}   -- key -> description, shown in the cheat sheet
+local hyperHelpTimer = nil
+local hyperHelpAlert = nil
+
+local function hideHyperHelp()
+  if hyperHelpTimer then hyperHelpTimer:stop(); hyperHelpTimer = nil end
+  if hyperHelpAlert then hs.alert.closeSpecific(hyperHelpAlert); hyperHelpAlert = nil end
+end
+
+local function showHyperHelp()
+  local keys = {}
+  for key in pairs(hyperShortcuts) do table.insert(keys, key) end
+  table.sort(keys)
+
+  local lines, width = {}, 0
+  for _, key in ipairs(keys) do
+    local line = key .. " - " .. hyperShortcuts[key]
+    table.insert(lines, line)
+    width = math.max(width, #line)
+  end
+  -- Alert text is centered, so pad lines to equal width to keep them in a column.
+  for i, line in ipairs(lines) do lines[i] = line .. string.rep(" ", width - #line) end
+
+  hyperHelpAlert = hs.alert.show(table.concat(lines, "\n"),
+    { textFont = "Menlo", textSize = 18 }, hs.screen.mainScreen(), true) -- true = stay until closed
+end
+
+hs.hotkey.bind({}, "F18",
+  function()
+    hideHyperHelp()
+    hyperUsed = false
+    hyper:enter()
+    hyperHelpTimer = hs.timer.doAfter(1, showHyperHelp)
+  end,
+  function()
+    hyper:exit()
+    local helpWasShown = hyperHelpAlert ~= nil
+    hideHyperHelp()
+    -- Tap alone = Escape (but not after using a shortcut or viewing the cheat sheet).
+    if not hyperUsed and not helpWasShown then hs.eventtap.keyStroke({}, "escape") end
+  end)
+
+local function hyperBind(key, description, fn)
+  hyperShortcuts[key] = description
+  hyper:bind({}, key, function()
+    hyperUsed = true
+    hideHyperHelp()
+    fn()
+  end)
+end
+
+-- ---------------------------------------------------------------------------
+-- App shortcuts (Caps Lock + key)
+-- ---------------------------------------------------------------------------
+
+-- Focuses Slack or Discord, whichever is installed; with both, flips between them.
+local function slackOrDiscord()
+  local slack = isInstalled("com.tinyspeck.slackmacgap")
+  local discord = isInstalled("com.hnc.Discord")
+  if slack and discord then
+    hs.application.launchOrFocus(frontmostIs("Slack") and "Discord" or "Slack")
+  elseif slack or discord then
+    hs.application.launchOrFocus(slack and "Slack" or "Discord")
   else
     hs.alert.show("Neither Slack nor Discord is installed")
   end
-end)
+end
 
--- Prevent macOS from sleeping (like caffeinate -di)
--- local keepAwake = hs.caffeinate.new("SystemAwake", true)
+hyperBind("1", "VS Code",           focusApp("Visual Studio Code"))
+hyperBind("2", "cmux",              focusApp("cmux"))
+hyperBind("3", "Firefox",           focusApp("Firefox"))
+hyperBind("4", "Slack / Discord",   slackOrDiscord)
+hyperBind("c", "Claude",            focusApp("Claude"))
+hyperBind("e", "Obsidian (toggle)", toggleApp("Obsidian"))
 
--- Enable when docked or always on AC power
-hs.battery.watcher.new(function()
-    if hs.battery.isCharging() then
-        hs.caffeinate.set("displayIdle", true, true)
-        hs.caffeinate.set("systemIdle", true, true)
-    else
-        hs.caffeinate.set("displayIdle", false, true)
-        hs.caffeinate.set("systemIdle", false, true)
-    end
-end):start()
+-- ---------------------------------------------------------------------------
+-- Power: keep the Mac and display awake while plugged in
+-- ---------------------------------------------------------------------------
+
+local function updateKeepAwake()
+  -- Anything but battery counts as plugged in, so Macs without a battery
+  -- (the Mac mini) always stay awake.
+  local pluggedIn = hs.battery.powerSource() ~= "Battery Power"
+  hs.caffeinate.set("displayIdle", pluggedIn, true)
+  hs.caffeinate.set("systemIdle", pluggedIn, true)
+end
+
+-- Global (not local) so it isn't garbage-collected.
+batteryWatcher = hs.battery.watcher.new(updateKeepAwake)
+batteryWatcher:start()
+updateKeepAwake() -- apply now too, not just on the next power change
 
 {{- if hasKey . "monitor_input" }}
--- Hammerspoon: switch the monitor to this Mac when the keyboard arrives
+
+-- ---------------------------------------------------------------------------
+-- Monitor switching: switch the monitor to this Mac when the keyboard arrives
 -- through the USB switch, or when this Mac wakes up with it attached.
 -- Only rendered when `monitor_input` is set in the chezmoi config [data].
+-- ---------------------------------------------------------------------------
 
 local MY_INPUT = {{ .monitor_input }}   -- this Mac's monitor input (check with: m1ddc get input)
 
