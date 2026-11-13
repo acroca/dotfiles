@@ -11,7 +11,7 @@
       "Edit(~/.claude/settings.json)"
     ]
   },
-  "model": "opus",
+  "model": "fable",
   "hooks": {},
   "statusLine": {
     "type": "command",
@@ -44,6 +44,9 @@
   "modelSettings": {
     "claude-opus-5-5": {
       "effortLevel": "xhigh"
+    },
+    "claude-fable-5-2": {
+      "effortLevel": "high"
     }
   }
 }

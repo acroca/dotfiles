@@ -106,5 +106,6 @@
   "chat.viewSessions.enabled": false,
   "chat.disableAIFeatures": true,
   "explorer.confirmPasteNative": false,
-  "terminal.integrated.initialHint": false
+  "terminal.integrated.initialHint": false,
+  "scm.defaultViewMode": "tree"
 }
