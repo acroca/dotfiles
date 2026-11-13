@@ -162,20 +162,36 @@ hs.hotkey.bind({"cmd"}, "5", toggleApp("Obsidian"))
 hs.hotkey.bind({"cmd"}, "e", focusApp("Claude"))
 
 -- ---------------------------------------------------------------------------
--- Power: keep the Mac and display awake while plugged in
+-- Power: keep the Mac and display awake while plugged in.
+-- On the lock screen the display is allowed to sleep; the Mac stays awake.
 -- ---------------------------------------------------------------------------
+
+local screenLocked = false
 
 local function updateKeepAwake()
   -- Anything but battery counts as plugged in, so Macs without a battery
   -- (the Mac mini) always stay awake.
   local pluggedIn = hs.battery.powerSource() ~= "Battery Power"
-  hs.caffeinate.set("displayIdle", pluggedIn, true)
+  hs.caffeinate.set("displayIdle", pluggedIn and not screenLocked, true)
   hs.caffeinate.set("systemIdle", pluggedIn, true)
 end
 
--- Global (not local) so it isn't garbage-collected.
+-- Globals (not locals) so they aren't garbage-collected.
 batteryWatcher = hs.battery.watcher.new(updateKeepAwake)
 batteryWatcher:start()
+
+lockWatcher = hs.caffeinate.watcher.new(function(event)
+  if event == hs.caffeinate.watcher.screensDidLock then
+    screenLocked = true
+  elseif event == hs.caffeinate.watcher.screensDidUnlock then
+    screenLocked = false
+  else
+    return
+  end
+  updateKeepAwake()
+end)
+lockWatcher:start()
+
 updateKeepAwake() -- apply now too, not just on the next power change
 
 {{- if hasKey . "monitor_input" }}
