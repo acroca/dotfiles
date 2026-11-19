@@ -198,7 +198,8 @@ updateKeepAwake() -- apply now too, not just on the next power change
 
 -- ---------------------------------------------------------------------------
 -- Monitor switching: switch the monitor to this Mac when the keyboard arrives
--- through the USB switch, or when this Mac wakes up with it attached.
+-- through the USB switch, or when this Mac wakes up with it attached; lock it
+-- once the keyboard has been gone for a while.
 -- Only rendered when `monitor_input` is set in the chezmoi config [data].
 -- ---------------------------------------------------------------------------
 
@@ -225,13 +226,56 @@ local function keyboardAttached()
   return false
 end
 
+-- Away lock: once the keyboard has been on another computer for
+-- AWAY_LOCK_DELAY, lock this Mac and sleep its display, so the monitor has no
+-- picture from it to fall back to. Never happens with the lid open: then this
+-- Mac is in use on its own.
+
+local AWAY_LOCK_DELAY = 10 * 60   -- seconds
+
+-- False on Macs without a lid (the Mac mini).
+local function lidOpen()
+  local out = hs.execute("/usr/sbin/ioreg -r -k AppleClamshellState -d 1") or ""
+  return out:find('"AppleClamshellState" = No', 1, true) ~= nil
+end
+
+local function away()
+  return not screenLocked and not keyboardAttached() and not lidOpen()
+end
+
 -- Globals (not locals) so they aren't garbage-collected.
+awayTimer = hs.timer.delayed.new(AWAY_LOCK_DELAY, function()
+  if not away() then return end
+  hs.caffeinate.lockScreen()
+  hs.execute("/usr/bin/pmset displaysleepnow")
+end)
+
+-- Starts the countdown when this Mac becomes "away", cancels it when it isn't.
+local function updateAwayTimer()
+  if not away() then
+    awayTimer:stop()
+  elseif not awayTimer:running() then
+    awayTimer:start()
+  end
+end
+
 usbWatcher = hs.usb.watcher.new(function(dev)
-  if isKeyboard(dev) and dev.eventType == "added" then
+  if not isKeyboard(dev) then return end
+  if dev.eventType == "added" then
+    -- Wake the display in case the away lock put it to sleep.
+    hs.caffeinate.declareUserActivity()
     hs.timer.doAfter(1, function() setInput(MY_INPUT) end)
   end
+  -- Delayed so the list of attached devices has caught up with the event.
+  hs.timer.doAfter(1, updateAwayTimer)
 end)
 usbWatcher:start()
+
+-- Opening or closing the lid adds or removes the built-in screen.
+lidWatcher = hs.screen.watcher.new(updateAwayTimer)
+lidWatcher:start()
+
+updateAwayTimer() -- the keyboard may already be away when this loads
 
 wakeWatcher = hs.caffeinate.watcher.new(function(event)
   if (event == hs.caffeinate.watcher.systemDidWake
