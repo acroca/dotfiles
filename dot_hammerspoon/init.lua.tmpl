@@ -194,13 +194,13 @@ lockWatcher:start()
 
 updateKeepAwake() -- apply now too, not just on the next power change
 
-{{- if hasKey . "monitor_input" }}
+{{- if and (hasKey . "monitor_input") .monitor_input }}
 
 -- ---------------------------------------------------------------------------
 -- Monitor switching: switch the monitor to this Mac when the keyboard arrives
 -- through the USB switch, or when this Mac wakes up with it attached; lock it
 -- once the keyboard has been gone for a while.
--- Only rendered when `monitor_input` is set in the chezmoi config [data].
+-- Only rendered when `monitor_input` is non-empty in the chezmoi config [data].
 -- ---------------------------------------------------------------------------
 
 local MY_INPUT = {{ .monitor_input }}   -- this Mac's monitor input (check with: m1ddc get input)

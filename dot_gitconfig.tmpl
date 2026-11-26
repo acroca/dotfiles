@@ -7,8 +7,8 @@
 [user]
   name = Albert Callarisa
   email = {{ .email }}
-  {{- if eq .email "acallarisa@tigerdata.com" }}
-  signingkey = F20283319E1704B5
+  {{- if and (hasKey . "signingkey") .signingkey }}
+  signingkey = {{ .signingkey }}
 
 [commit]
   gpgsign = true

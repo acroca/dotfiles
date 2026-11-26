@@ -1,5 +1,7 @@
 {{- $email := promptStringOnce . "email" "Email address to use in this machine" -}}
-{{- $monitor_input := promptStringOnce . "monitor_input" "Monitor input (m1ddc get input)" -}}
+{{- $monitor_input := promptStringOnce . "monitor_input" "Monitor input, from `m1ddc get input` (empty to disable monitor auto-switch)" -}}
+{{- $signingkey := promptStringOnce . "signingkey" "GPG signing key ID (empty to disable commit signing)" -}}
 [data]
   email = "{{ $email }}"
   monitor_input = "{{ $monitor_input }}"
+  signingkey = "{{ $signingkey }}"

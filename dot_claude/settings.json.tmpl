@@ -1,0 +1,10 @@
+{{- /*
+  Base settings live in .chezmoitemplates/claude_settings.json.
+  If a private overlay exists outside this repo, it is merged on top.
+*/ -}}
+{{- $settings := include ".chezmoitemplates/claude_settings.json" | fromJson -}}
+{{- $private := joinPath .chezmoi.homeDir ".config/chezmoi/claude-settings.private.json" -}}
+{{- if stat $private -}}
+{{-   $settings = mergeOverwrite $settings (include $private | fromJson) -}}
+{{- end -}}
+{{ $settings | toPrettyJson -}}
